@@ -1,0 +1,23 @@
+{
+  "name": "front-end-fisheye",
+  "version": "1.0.0",
+  "description": "## Démarrer le projet",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "http-server": "http-server ./"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wfarre/Front-End-Fisheye.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wfarre/Front-End-Fisheye/issues"
+  },
+  "homepage": "https://github.com/wfarre/Front-End-Fisheye#readme",
+  "dependencies": {
+    "http-server": "^14.1.0"
+  }
+}
