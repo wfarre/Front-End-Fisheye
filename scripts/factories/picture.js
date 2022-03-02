@@ -3,7 +3,10 @@ function displayPicture(data, photographer) {
     //     if (pic.photographerId === id) {
     const { title, image, video,likes } = data;
 
-    const picture = `../assets/pictures/${photographer}/${image}`
+   
+        const movie = `../assets/pictures/${photographer}/${video}`
+
+        const picture = `../assets/pictures/${photographer}/${image}`
 
     function loadPic() {
         // create my DOM element 
@@ -13,20 +16,15 @@ function displayPicture(data, photographer) {
         const cardTitle = document.createElement("h2");
         const like = document.createElement("span");
         let mediaDisplay;
-
-        // const mediaType = image.split(".")[1];
         if(image){
             const img = document.createElement("img");
             img.setAttribute("src", picture);
-            // return img;
             mediaDisplay = img;
         } else if (video){
             const videoEl = document.createElement("video");
             const videoSource = document.createElement("source");
             videoEl.appendChild(videoSource);
-            videoSource.setAttribute("src", picture);
-            // console.log("video");
-            // return videoEl;
+            videoSource.setAttribute("src", movie);
             mediaDisplay = videoEl;
         }
         // add class to my DOM elements
@@ -38,9 +36,8 @@ function displayPicture(data, photographer) {
 
         card.appendChild(imageWrapper);
         card.appendChild(cardHeader);
-        imageWrapper.appendChild(mediaDisplay);
-        // imageWrapper.appendChild(videoEl)
 
+        imageWrapper.appendChild(mediaDisplay);
         cardHeader.appendChild(cardTitle);
         cardHeader.appendChild(like);
 
@@ -52,7 +49,3 @@ function displayPicture(data, photographer) {
     }
     return {loadPic}
 }
-// return {
-//     loadPic
-// }
-// });
