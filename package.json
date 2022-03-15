@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "http-server": "http-server ./"
+    "http-server": "http-server ./",
+    "sass": "sass --watch ./public/assets/sass/photographer/main.scss ./public/css/photographer.css",
+    "sass2": "sass --watch ./public/assets/sass/style/main.scss ./public/css/style.css"
   },
   "repository": {
     "type": "git",

@@ -1,0 +1,70 @@
+@import "./buttons";
+@import "./contactForm";
+@import "./selector";
+@import "./photograpger_header";
+@import "./picture_card";
+@import "./picture_container";
+@import "./slider";
+
+
+
+body{
+    position: relative;
+    font-family: 'DM Sans', sans-serif;
+    height: 100%;
+    width: 100%;
+}
+
+#main{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.body-header{
+    margin: 0 100px;
+}
+
+.logo{
+    height: 50px;
+}
+
+
+
+
+.form-data[data-error]::after {
+    content: attr(data-error);
+    font-size: 0.4em;
+    color: #e54858;
+    display: inline;
+    width: calc(100% - 10px) ;
+    margin-top: -10px;
+    margin-bottom: 17px;
+    text-align: right;
+    line-height: 0.3;
+    opacity: 0;
+    transition: 0.3s;
+  }
+  .form-data[data-error-display="true"]::after {
+    opacity: 1;
+  }
+  .form-data[data-error-display="true"] .contact-form__input{
+    border: 2px solid #e54858;
+    animation: buzzing 100ms 3;
+  }
+  
+
+  .form-data.submit[data-error]::after{
+    text-align: center;
+  }
+
+  @keyframes buzzing {
+    0% {
+      transform: translateX(-10px);
+    }
+  
+    100% {
+      transform: translateX(10px);
+    }
+  
+  }

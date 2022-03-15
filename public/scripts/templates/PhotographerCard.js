@@ -1,10 +1,12 @@
-function photographerFactory(data) {
-    const { name, portrait, city, price, tagline } = data;
+class PhotographerCard{
+    constructor(photographer){
+        this._photographer = photographer
+    }
 
-    const picture = `assets/photographers/${portrait}`;
+    
+    createPhotographerCard(){
+        const picture = this._photographer.portrait;
 
-    function getUserCardDOM() {
-        // create elements of card 
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
         const h2 = document.createElement( 'h2' );
@@ -17,10 +19,10 @@ function photographerFactory(data) {
 
 
 
-        h2.textContent = name;
-        h3.textContent = city;
-        p.textContent = tagline;
-        span.textContent = price+"€/jour";
+        h2.textContent = this._photographer.name;
+        h3.textContent = this._photographer.city;
+        p.textContent = this._photographer.tagline;
+        span.textContent = this._photographer.price+"€/jour";
         img.setAttribute("src", picture);
 
         // info.appendChild(h2);
@@ -45,21 +47,15 @@ function photographerFactory(data) {
 
         return (article);
     }
-    return { name, picture, getUserCardDOM }
-}
 
+    loadDom() {
+        const picture = this._photographer.portrait;
 
-function photographerFactory2(data){
-    const {name, portrait, city, price, tagline, id} = data;
-
-    const picture = `assets/photographers/${portrait}`;
-
-    function loadDom() {
-        document.getElementById("name").textContent = name;
-        document.getElementById("city").textContent = city;
-        document.getElementById("tagline").textContent = tagline;
+        document.getElementById("name").textContent = this._photographer.name;
+        document.getElementById("city").textContent = this._photographer.city;
+        document.getElementById("tagline").textContent = this._photographer.tagline;
         document.getElementById("profile-pic").setAttribute("src", picture); 
-        document.getElementById("price").textContent = price+"€/jour";
+        document.getElementById("price").textContent = this._photographer.price+"€/jour";
 
         // const pictureContainer = document.querySelector(".container--picture");
 
@@ -67,5 +63,4 @@ function photographerFactory2(data){
 
         // })
     }
-    return {id, name, loadDom};
-}
+} 

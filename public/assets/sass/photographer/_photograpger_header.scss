@@ -1,0 +1,65 @@
+/* photoraph header  */
+.photograph-header {
+    background-color: #FAFAFA;
+    height: 300px;
+    margin: 0 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.image-wrapper{
+    position: relative;
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.image-wrapper img{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    top:0;
+    left:0;
+}
+
+.info-text{
+    margin:0;
+}
+
+.info-text--city{
+    margin-bottom: 19px;
+}
+
+/* .photographer-info{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+} */
+.photographer-info__name{
+    font-size: 64px;
+    color:#D3573C;
+    margin: 0;
+}
+
+.photographer-info__city{
+    font-size: 24px;
+    color:#901C1C;
+}
+
+.photographer-info__tagline{
+    font-size: 18px;
+    color: #525252;
+}
+
+/* picture section  */
+
+.picture-section{
+    margin: 0 100px;
+    margin-top: 20px;
+}
