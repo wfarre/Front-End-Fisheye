@@ -12,6 +12,18 @@
    
 }
 
+@keyframes apparition-from-top {
+    0%{
+        opacity: 0;
+        transform: translateY(-100%);
+    }
+
+    100%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 .modal-bg{
     content: " ";
     position: fixed;
@@ -34,7 +46,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 35px;
-    /* margin: auto; */
+    animation: apparition-from-top 500ms ease-out forwards;
 
 }
 
@@ -100,4 +112,19 @@ form label {
     position: absolute;
     top:20px;
     right:20px;
+    cursor: pointer;
+}
+
+.legend{
+    visibility: hidden;
+    position: absolute;
+    top:0;
+    left: 0;
+}
+
+.fieldset{
+    position: relative;
+    border: none;
+    width: 100%;
+    padding: 0;
 }

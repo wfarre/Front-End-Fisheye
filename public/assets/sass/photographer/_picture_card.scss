@@ -20,6 +20,9 @@
     width: 350px;
     display: flex;
     flex-direction: column;
+    @include mobile{
+        width: 100%;
+    }
 
 }
 
@@ -41,7 +44,7 @@
     position: absolute;
     top:0;
     left: 0;
-    object-fit:cover;
+    object-fit: cover;
 }
 
 .card__header{
@@ -61,6 +64,8 @@
 }
 
 .likes{
+    // display: inline-flex;
+    // width: 50px;
     font-size: 24px;
     z-index: 40;
 }
@@ -69,11 +74,47 @@
     margin-right: 10px;
 }
 
+// .like-logo-wrapper{
+//     position: relative;
+//     display: inline-block;
+//     height: 24px;
+//     width: 24px;
+
+// }
+
 .like-logo{
+    // position: absolute;
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
     font-size: 19px;
+    // display: none;
+    transition: all 500ms;
+    // transition-delay: 900ms;
+    &:hover{
+        cursor: pointer;
+        font-size: 21px;
+        // color: white;
+    }
 }
 
+.byebye-heart{
+    // display: none;
+    animation: fly-away 1s ease-in ;
+    color: #000;
+}
 
+@keyframes fly-away {
+    0%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    
+}
 
 video{
     height: 100%;
@@ -81,4 +122,14 @@ video{
     position: absolute;
     top:0;
     left: 0;
+    object-fit: cover;
+}
+
+.play-logo-wrapper{
+    content: " ";
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    background: white;
+
 }

@@ -1,0 +1,17 @@
+// 1103 profile
+
+// 775 profile + picture
+
+
+@mixin tablet{
+    @media all and (max-width:1103px){
+        @content;
+    }
+}
+
+
+@mixin mobile{
+    @media all and (max-width:900px){
+        @content;
+    }
+}

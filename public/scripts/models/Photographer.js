@@ -10,7 +10,7 @@ class Photographer{
     }
 
     get name(){
-        return this._portrait
+        return this._name
     }
 
     get id(){

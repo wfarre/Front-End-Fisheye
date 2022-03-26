@@ -6,85 +6,81 @@ class PhotographyCard {
     createPhotographyCard() {
         const media = this._photography.media;
 
-        // create my DOM element 
-        const card = document.createElement("div");
-        const imageWrapper = document.createElement("div");
-        const cardHeader = document.createElement("div");
-        const cardTitle = document.createElement("h2");
-        const like = document.createElement("p");
-        let mediaDisplay;
+        const photographyCard = document.createElement("article");
+        photographyCard.classList.add("card");
+
+        let mediaToDisplay;
 
         if (media === this._photography.image){
-            const img = document.createElement("img");
-            img.setAttribute("src", media);
-            mediaDisplay = img;
+            mediaToDisplay = `
+            <img src="${media}" alt="${this._photography.title}"/>`;
         }
 
         if (media === this._photography.video) {
-            const videoEl = document.createElement("video");
-            const videoSource = document.createElement("source");
-            videoEl.appendChild(videoSource);
-            videoSource.setAttribute("src", media);
-            mediaDisplay = videoEl;
+            mediaToDisplay = `
+            <video>
+                <source src="${media}">
+            </video>`;
         }
 
-        // add class to my DOM elements
-        card.classList.add("card");
-        imageWrapper.classList.add("image-wrapper");
-        cardHeader.classList.add("card__header");
-        cardTitle.classList.add("card__header__title");
-        like.classList.add("likes");
+        photographyCard.innerHTML = `
+            <div class="image-wrapper">
+                ${mediaToDisplay}
+            </div>
+            <div class="card__header">
+                <h2 class="card__header__title">
+                    ${this._photography.title}
+                </h2>
+                <div checked="false" class="likes">
+                    <span class="like-counter">
+                        ${this._photography.likes}
+                    </span>
+                    <i class="fas fa-heart like-logo like-logo-unchecked" aria-hidden="true">
+                    </i>
+                </div>
+            </div>`;
 
-        card.appendChild(imageWrapper);
-        card.appendChild(cardHeader);
 
-        imageWrapper.appendChild(mediaDisplay);
-        cardHeader.appendChild(cardTitle);
-        cardHeader.appendChild(like);
-
-
-        cardTitle.textContent = this._photography.title;
-        like.innerHTML = '<span class="like-counter">' + this._photography.likes + '</span><i class="fas fa-heart like-logo"></i>';
-
-        return (card);
+        return (photographyCard);
     }
 
 
     createSlide(){
         const media = this._photography.media;
-        console.log("the media");
-        console.log(media === this._photography.video);
         
         const slide = document.createElement("div");
-        const imageWrapper = document.createElement("div");
-        const cardHeader = document.createElement("div");
-        const cardTitle = document.createElement("h2");
-        let mediaDisplay;
-        if (media === this._photography.image) {
-            const img = document.createElement("img");
-            img.setAttribute("src", media);
-            mediaDisplay = img;
-        } 
-        if (media === this._photography.video) {
-            const videoWrapper = document.createElement("video");
-            const videoSource = document.createElement("source");
-            videoWrapper.appendChild(videoSource);
-            videoSource.setAttribute("src", media);
-            mediaDisplay = videoWrapper;
-        }
-        // add class to my DOM elements
         slide.classList.add("slide");
-        imageWrapper.classList.add("image-wrapper");
-        cardHeader.classList.add("card__header");
-        cardTitle.classList.add("card__header__title");
+        slide.setAttribute("aria-hidden", "true");
 
-        slide.appendChild(imageWrapper);
-        slide.appendChild(cardHeader);
+        let mediaDiv;
 
-        imageWrapper.appendChild(mediaDisplay);
-        cardHeader.appendChild(cardTitle);
+        if (media === this._photography.image) {
+            const photoWrapper = `
+            <img src="${media}" alt="${this._photography.title}" />`;
 
-        cardTitle.textContent = this._photography.title;
+            mediaDiv = photoWrapper;
+        } 
+
+        if (media === this._photography.video) {
+            const videoWrapper = `
+            <video id="player" playsinline controls data-poster="${media}">
+                <source src="${media}" type="video/mp4" />
+            </video>`;
+
+            mediaDiv = videoWrapper;
+        }
+
+        slide.innerHTML = `
+            <div class="image-wrapper">
+                <div>
+                    ${mediaDiv}
+                </div>
+            </div>
+            <div class="card__header">
+                <h2 class="card__header__title">
+                    ${this._photography.title}
+                </h2>
+            </div>`;
 
         return (slide);
     }

@@ -29,26 +29,40 @@
 
 .selector-wrapper{
     position: relative;
+    width: 170px;
 }
 
 
 .selector{
+    position: absolute;
+    display: none;
+    flex-direction: column-reverse;
     padding: 0;
     border-radius: 5px;
     width: 170px;
     overflow: hidden;
-    display: flex;
-    flex-direction: column-reverse;
-    position: absolute;
+    
     top: 0;
     left:0;
     margin: 0;
     z-index: 1;
+    animation: dropdown-apparition 500ms forwards;
+    transform-origin: top center;
+}
+
+@keyframes dropdown-apparition {
+    0%{
+        transform: scaleY(0.33);
+    }
+    100%{
+        transform: scaleY(1);
+    }
 }
 
 .option{
-    display: none;
+    // display: none;
     position: relative;
+    display: flex;
     align-items: center;
     background: #901C1C;
     color: #FAFAFA;
@@ -68,11 +82,6 @@
     position: absolute;
     top:0;
     left: 10px;
-    /* bottom:0; */
-    /* left: 50%; */
-    /* top:100%; */
-    /* left: 50%;  */
-    /* transform: translateX(-50%); */
     width:150px;
     height: 1px;
     background: #FAFAFA;
@@ -85,4 +94,27 @@
 
 .option.checked::after{
     display: none;
+}
+
+
+.dropdown-menu{
+    &__button{
+    position: absolute;
+    top:0;
+    left: 0;
+    align-items: center;
+    background: #901C1C;
+    color: #FAFAFA;
+    font-size: 18px;
+    width: 100%;
+    height: 69px;
+    padding-left: 20px;
+    border-radius: 5px;
+    border: none;
+    text-align: left;
+    &:hover{
+        cursor: pointer;
+    }
+    }
+
 }

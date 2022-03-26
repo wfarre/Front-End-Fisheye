@@ -1,162 +1,224 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
   <!-- fontawesome icons -->
   <script src="https://kit.fontawesome.com/0b857a3b0d.js" crossorigin="anonymous"></script>
 
 
-  <link href="css/photographer.css" rel="stylesheet" type="text/css" />
   <meta charset="utf-8">
+
+  <title>Fisheye - photographe </title>
+
   <link rel="icon" type="image/png" href="assets/images/logo.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-  <title>Fisheye - photographe </title>
+  <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css" />
+  <link href="css/photographer.css" rel="stylesheet" type="text/css" />
+
+
 </head>
 
-<body>
+<body id="body">
 
-  
-
-
-
-  <header class="body-header">
-    <a href="./">
-      <img src="assets/images/logo.png" class="logo" />
+  <header class="body-header" role="header">
+    <a href="./" aria-label="Fisheye">
+      <img src="assets/images/logo.png" class="logo fisheye" />
     </a>
   </header>
-  <main id="main">
+  <main id="main" aria-hidden="false">
 
-    <section id="contact_modal" class="contact_modal">
-      <div class="modal-bg"></div>
-      <div class="modal">
-        <img class="close-modal-btn" src="assets/icons/close.svg" onclick="closeModal()" />
-        <header class="contact__header">
-          <h2 class="contact__header__title">Contactez-moi</h2>
-          <h2 class="contact__header__title">Mimi Keel</h2>
-        </header>
-        <form action="photographer.html" method="get" class="form contact-form" onsubmit="validateForm(event)">
-          <div class="form-data" data-error="Votre prénom doit comporter au moins 2 caractères." data-error-display="false">
-            <label for="firstName">Prénom</label>
-            <input class="contact-form__input" type="text" name="firstName" id="firstName" data-type="name"/>
-          </div >
-          <div class="form-data" data-error="Votre prénom doit comporter au moins 2 caractères." data-error-display="false">
-            <label for="lastName">Nom</label>
-            <input class="contact-form__input" type="text" name="lastName" id="lastName" data-type="name"/>
-          </div>
-          <div class="form-data" data-error="Veuillez entrer un email valide." data-error-display="false">
-            <label for="email" >Email</label>
-            <input class="contact-form__input" type="email" name="email" id="email" data-type="email"/>
-          </div>
-          <div class="form-data" data-error="Votre message doit comporter au moins 200 caractères." data-error-display="false">
-            <label for="message">Votre message</label>
-            <textarea class="contact-form__input contact-form__input--message-content" type="text" name="message" id="message" data-type="message" ></textarea>
-          </div>
-          <button type="submit" class="contact_button">Envoyer</button>
-        </form>
-      </div>
-    </section>
-
-   
-
-    
 
     <section id="photograph-header" class="photograph-header">
+
       <div class="photographer-info">
+
         <div class="photographer-info__name">
           <p id="name" class="info-text info-text--name" aria-label="nom du photographe">Mimi Keel</p>
         </div>
+
         <div class="photographer-info__city">
           <p id="city" class="info-text info-text--city" aria-label="localisation du photographe">London, UK</p>
         </div>
+
         <div class="photographer-info__tagline">
-          <p id="tagline" class="info-text info-text--tagline" aria-lable="slogan du photographe">fjsklksdlka</p>
+          <p id="tagline" class="info-text info-text--tagline" aria-label="slogan du photographe">fjsklksdlka</p>
         </div>
+
       </div>
-      <div>
+
+      <div class="button-wrapper">
         <button class="contact_button" onclick="displayModal()"
           aria-label="contacter le photographe">Contactez-moi</button>
       </div>
+
       <div class="image-wrapper">
-        <img id="profile-pic" src="./assets/photographers/MimiKeel.jpg" alt="photographer image">
+        <img id="profile-pic" src="./assets/photographers/MimiKeel.jpg" alt="photographie du photographe">
       </div>
+
     </section> <!-- .photograph-header  -->
 
     <section class="picture-section" id="picture-section">
-      <div class="select">
-        <input class="dropdown-checkbox" type="checkbox" id="dropdown" aria-controls="dropdown-menu">
+
+      <header class="select">
+        <input class="dropdown-checkbox" type="checkbox" id="dropdown">
         <label class="select__label" for="dropdown">
-          <div class="select__label__text">
-            <p>Trier par</p>
+
+          <div class="select__header">
+            <div class="select__label__text">
+              <p>Trier par</p>
+            </div>
           </div>
+
           <div class="selector-wrapper">
-            <ul class="selector" id="filter" role="select" onclick="changeFilter()">
-              <li class="option checked" id="popularity">Popularité</li>
-              <li class="option" id="date">Date</li>
-              <li class="option" id="title">Titre</li>
+            <button class="dropdown-menu__button" aria-haspopup="true" aria-expanded="false">
+              Popularité
+            </button>
+
+            <ul class="selector" id="filter" role="listbox" aria-controls="dropdown-menu" aria-labelledby="ID_REF"
+              tabindex="-1">
+              <li role="option" class="option" id="popularity" aria-label="Trier par popularité">Popularité</li>
+              <li role="option" class="option" id="date" aria-label="Trier par date">Date</li>
+              <li role="option" class="option" id="title" aria-label="Trier par titre">Titre</li>
             </ul>
           </div>
 
         </label>
-      </div>
 
-      <div class="container container--picture"></div>
+      </header>
 
-    </section>
-
-    <section id="carousel" class="carousel">
-      <div class="carousel__bg">
-        <div class="carousel__content">
-        </div>
-        <div class="close-btn" role="button" aria-label="fermer le slider">
-          <i class="fas fa-times cross"></i>
-        </div>
-        <div class="prev" id="prev" role="button" aria-label="aller à la photographie précédente"
-          onclick="previousSlide(1)">
-          <i class="fas fa-angle-left arrow"></i>
-        </div>
-        <div class="next" id="next" role="button" aria-label="aller à la photographie suivante" onclick="nextSlide(1)">
-          <i class="fas fa-angle-right arrow"></i>
-        </div>
+      <div class="container container--picture">
+        <!-- <div class="loader"></div> -->
       </div>
 
     </section>
 
-    <div class="sub-info">
-      <div class="sub-info__likes">
-        <span class="like-quantity">27000</span>
-        <i class="fas fa-heart"></i>
+   
+
+  </main>
+
+  <footer class="sub-info footer" role="contentinfo">
+
+    <div class="sub-info__likes" aria-label="nombre de likes">
+      <span class="like-quantity">27000</span>
+      <i class="fas fa-heart"></i>
+    </div>
+
+    <div class="sub-info__price" aria-label="prix du photographe">
+      <span id="price" class="price">500euros/jour</span>
+    </div>
+
+  </footer>
+
+
+  <section id="carousel" class="carousel" role="dialog" aria-hidden="true">
+
+    <div class="carousel__bg">
+      <div class="carousel__content">
       </div>
-      <div class="sub-info__price">
-        <span id="price" class="price">500euros/jour</span>
+      <div class="close-btn" role="button" aria-label="fermer le slider">
+        <i class="fas fa-times cross"></i>
+        <span class="sr-only"></span>
       </div>
+      <div class="prev" id="prev" role="button" aria-label="aller à la photographie précédente"
+        onclick="previousSlide(1)">
+        <i class="fas fa-angle-left arrow"></i>
+        <span class="sr-only">Aller à la photographie précédente</span>
+      </div>
+      <div class="next" id="next" role="button" aria-label="aller à la photographie suivante" onclick="nextSlide(1)">
+        <i class="fas fa-angle-right arrow"></i>
+        <span class="sr-only">Aller à la prochaine photographie</span>
+      </div>
+    </div>
+
+  </section>
+
+  <section id="contact_modal" class="contact_modal" role="dialog" aria-hidden="true">
+
+    <div class="modal-bg"></div>
+
+    <div class="modal" >
+
+      <img class="close-modal-btn" id="close-modal-btn" src="assets/icons/close.svg" onclick="closeModal()" />
+
+      <header class="contact__header">
+        <h2 class="contact__header__title">Contactez-moi</h2>
+        <h2 class="contact__header__title">Mimi Keel</h2>
+      </header>
+
+      <form action="photographer.html" method="get" class="form contact-form" onsubmit="validateForm(event)">
+
+        <fieldset class="fieldset information--fieldset">
+          <legend class="legend information---legend">Vos coordonnées</legend>
+
+          <div class="form-data" data-error="Votre prénom doit comporter au moins 2 caractères."
+            data-error-display="false">
+            <label for="firstName">Prénom</label>
+            <input class="contact-form__input" type="text" name="firstName" id="firstName" data-type="name"
+              placeholder="Prénom" required aria-required="true" />
+          </div>
+
+          <div class="form-data" data-error="Votre prénom doit comporter au moins 2 caractères."
+            data-error-display="false">
+            <label for="lastName">Nom</label>
+            <input class="contact-form__input" type="text" name="lastName" id="lastName" data-type="name"
+              placeholder="Nom" required aria-required="true" />
+          </div>
+
+          <div class="form-data" data-error="Veuillez entrer un email valide." data-error-display="false">
+            <label id="email" for="email">Email</label>
+            <input class="contact-form__input" type="email" name="email" id="email" data-type="email"
+              placeholder="Votre adresse email" aria-labelledby="email" aria-describedby="email-format" required
+              aria-required="true" />
+            <span id="email-format" class="hidden">adresse@email.com</span>
+          </div>
+
+        </fieldset>
+
+        <fieldset class="fieldset message--fieldset">
+          <legend class="legend message-legend">Votre message</legend>
+
+          <div class="form-data" data-error="Votre message doit comporter au moins 200 caractères."
+            data-error-display="false">
+            <label for="message">Votre message</label>
+            <textarea class="contact-form__input contact-form__input--message-content" type="text" name="message"
+              id="message" data-type="message" placeholder="Votre message ici" required
+              aria-required="true"></textarea>
+          </div>
+
+        </fieldset>
+
+
+        <button type="submit" class="contact_button">Envoyer</button>
+
+      </form>
 
     </div>
 
+  </section>
 
-  
+  <script src="./scripts/utils/getLikeNumber.js"></script>
 
-
-  </main>
-  
   <script src="./scripts/utils/selector.js"></script>
   <script src="./scripts/utils/slider.js"></script>
-  <script src="./scripts/utils/filters.js"></script>
+  <script src="./scripts/utils/changeFilter.js"></script>
 
   <!-- factories -->
   <script src="./scripts/factories/photographer.js"></script>
-  
+
   <!-- pages -->
   <script src="./scripts/pages/photographer.js"></script>
 
   <!-- models -->
   <script src="/public/scripts/models/Photographer.js"></script>
   <script src="/public/scripts/models/Photography.js"></script>
+  <script src="/public/scripts/models/Email.js"></script>
 
   <!-- templates -->
-<script src="/public/scripts/templates/PhotographerCard.js"></script>
-<script src="/public/scripts/templates/PhotographyCard.js"></script>
+  <script src="/public/scripts/templates/PhotographerCard.js"></script>
+  <script src="/public/scripts/templates/PhotographyCard.js"></script>
 
   <script src="./scripts/utils/contactForm.js"></script>
+  <!-- <script src="./scripts/utils/filters.js"></script> -->
 </body>
 
 </html>

@@ -1,7 +1,5 @@
 class Photography{
     constructor(data){
-        console.log("my data");
-        console.log(data);
         this._id = data.media.id
         this._photographerId = data.media.photographerId
         this._title = data.media.title
@@ -10,10 +8,7 @@ class Photography{
         this._likes = data.media.likes 
         this._date = data.media.date 
         this._price = data.media.price
-        this._photographerName = data.photographerName
-
-        console.log(this._photographerName);
-        
+        this._photographerName = data.photographerName        
     }
 
     get id(){
@@ -33,7 +28,6 @@ class Photography{
     }
 
     get video(){
-        console.log(this._video);
         return `./assets/pictures/${this._photographerName}/${this._video}`
     }
 
