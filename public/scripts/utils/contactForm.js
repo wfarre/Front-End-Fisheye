@@ -135,12 +135,16 @@ function checkIfMessageIsValid(input) {
     }
 }
 
+
+
 /**
  * removeDanger() : 
  * if element valid, remove error  
  * */
 function removeDanger(formData) {
-    formData.setAttribute("data-error-display", false);
+    // formData.setAttribute("data-error-display", false);
+    formData.classList.remove("error");
+    formData.classList.add("valid");
 }
 
 /**
@@ -148,7 +152,11 @@ function removeDanger(formData) {
  * if element not valid, display error  
  * */
 function displayDanger(formData) {
-    formData.setAttribute("data-error-display", true);
+    formData.classList.add("error");
+    formData.classList.remove("valid");
+    
+
+    // formData.setAttribute("data-error-display", true);
 }
 
 

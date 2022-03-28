@@ -3,11 +3,6 @@ const carousel = document.querySelector(".carousel");
 const body = document.getElementById("body");
 let currentSlide;
 
-
-
-
-
-
 /**
  * displaySlide()
  * display the slide according the right index 
@@ -86,6 +81,10 @@ function displaySlideOnClick(pictureArray){
     });
 }
 
+/**
+ * closeCarousel():
+ * close the carousel and apply the different aria attributes
+ */
 function closeCarousel(){
     carousel.style.display = "none";
     body.classList.remove("no-scroll");

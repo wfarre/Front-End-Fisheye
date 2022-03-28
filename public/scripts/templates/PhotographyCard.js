@@ -8,19 +8,20 @@ class PhotographyCard {
 
         const photographyCard = document.createElement("article");
         photographyCard.classList.add("card");
+        photographyCard.setAttribute("aria-label", this._photography.title + ", closeup view")
 
         let mediaToDisplay;
 
         if (media === this._photography.image){
             mediaToDisplay = `
-            <img src="${media}" alt="${this._photography.title}"/>`;
+                <img src="${media}" alt="${this._photography.likes} likes"/>`;
         }
 
         if (media === this._photography.video) {
             mediaToDisplay = `
-            <video>
-                <source src="${media}">
-            </video>`;
+                <video>
+                    <source src="${media}" aria-label="${this._photography.likes} likes">
+                </video>`;
         }
 
         photographyCard.innerHTML = `
@@ -56,16 +57,16 @@ class PhotographyCard {
 
         if (media === this._photography.image) {
             const photoWrapper = `
-            <img src="${media}" alt="${this._photography.title}" />`;
+                <img src="${media}" alt="${this._photography.likes} likes" />`;
 
             mediaDiv = photoWrapper;
         } 
 
         if (media === this._photography.video) {
             const videoWrapper = `
-            <video id="player" playsinline controls data-poster="${media}">
-                <source src="${media}" type="video/mp4" />
-            </video>`;
+                <video id="player" playsinline controls data-poster="${media}" aria-label="${this._photography.likes} likes">
+                    <source src="${media}" type="video/mp4" />
+                </video>`;
 
             mediaDiv = videoWrapper;
         }

@@ -89,8 +89,6 @@ async function init(organizingFunction) {
         mediaData
     } = await getPhotographers();
 
-    // let mediaArray = mediaData;
-
     organizingFunction(mediaData);
     displayData(photographerData[0], mediaData);
 

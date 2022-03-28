@@ -20,39 +20,38 @@
 
 <body id="body">
 
-  <header class="body-header" role="header">
+  <header class="body-header" role="header" aria-hidden="false">
     <a href="./" aria-label="Fisheye">
-      <img src="assets/images/logo.png" class="logo fisheye" />
+      <img src="assets/images/logo.png" class="logo fisheye" alt="Fisheye Home page"/>
     </a>
   </header>
   <main id="main" aria-hidden="false">
-
 
     <section id="photograph-header" class="photograph-header">
 
       <div class="photographer-info">
 
         <div class="photographer-info__name">
-          <p id="name" class="info-text info-text--name" aria-label="nom du photographe">Mimi Keel</p>
+          <p id="name" class="info-text info-text--name" aria-label="nom du photographe"></p>
         </div>
 
         <div class="photographer-info__city">
-          <p id="city" class="info-text info-text--city" aria-label="localisation du photographe">London, UK</p>
+          <p id="city" class="info-text info-text--city" aria-label="localisation du photographe"></p>
         </div>
 
         <div class="photographer-info__tagline">
-          <p id="tagline" class="info-text info-text--tagline" aria-label="slogan du photographe">fjsklksdlka</p>
+          <p id="tagline" class="info-text info-text--tagline" aria-label="slogan du photographe"></p>
         </div>
 
       </div>
 
       <div class="button-wrapper">
         <button class="contact_button" onclick="displayModal()"
-          aria-label="contacter le photographe">Contactez-moi</button>
+          aria-label="Contact me">Contactez-moi</button>
       </div>
 
       <div class="image-wrapper">
-        <img id="profile-pic" src="./assets/photographers/MimiKeel.jpg" alt="photographie du photographe">
+        <img id="profile-pic" src="" alt="photographie du photographe">
       </div>
 
     </section> <!-- .photograph-header  -->
@@ -61,7 +60,7 @@
 
       <header class="select">
         <input class="dropdown-checkbox" type="checkbox" id="dropdown">
-        <label class="select__label" for="dropdown">
+        <label class="select__label" for="dropdown"  >
 
           <div class="select__header">
             <div class="select__label__text">
@@ -74,7 +73,7 @@
               Popularité
             </button>
 
-            <ul class="selector" id="filter" role="listbox" aria-controls="dropdown-menu" aria-labelledby="ID_REF"
+            <ul class="selector" id="filter" role="listbox" aria-controls="dropdown-menu" aria-labelledby="select__label"
               tabindex="-1">
               <li role="option" class="option" id="popularity" aria-label="Trier par popularité">Popularité</li>
               <li role="option" class="option" id="date" aria-label="Trier par date">Date</li>
@@ -99,32 +98,32 @@
   <footer class="sub-info footer" role="contentinfo">
 
     <div class="sub-info__likes" aria-label="nombre de likes">
-      <span class="like-quantity">27000</span>
+      <span class="like-quantity"></span>
       <i class="fas fa-heart"></i>
     </div>
 
     <div class="sub-info__price" aria-label="prix du photographe">
-      <span id="price" class="price">500euros/jour</span>
+      <span id="price" class="price"></span>
     </div>
 
   </footer>
 
 
-  <section id="carousel" class="carousel" role="dialog" aria-hidden="true">
+  <section id="carousel" class="carousel" role="dialog" aria-hidden="true" aria-label="image closeup view">
 
     <div class="carousel__bg">
       <div class="carousel__content">
       </div>
-      <div class="close-btn" role="button" aria-label="fermer le slider">
+      <div class="close-btn" role="button" aria-label="close dialog">
         <i class="fas fa-times cross"></i>
         <span class="sr-only"></span>
       </div>
-      <div class="prev" id="prev" role="button" aria-label="aller à la photographie précédente"
+      <div class="prev" id="prev" role="button" aria-label="Previous image"
         onclick="previousSlide(1)">
         <i class="fas fa-angle-left arrow"></i>
         <span class="sr-only">Aller à la photographie précédente</span>
       </div>
-      <div class="next" id="next" role="button" aria-label="aller à la photographie suivante" onclick="nextSlide(1)">
+      <div class="next" id="next" role="button" aria-label="Next image" onclick="nextSlide(1)">
         <i class="fas fa-angle-right arrow"></i>
         <span class="sr-only">Aller à la prochaine photographie</span>
       </div>
@@ -132,15 +131,15 @@
 
   </section>
 
-  <section id="contact_modal" class="contact_modal" role="dialog" aria-hidden="true">
+  <section id="contact_modal" class="contact_modal" role="dialog" aria-hidden="true" aria-labelledby="contact__header">
 
     <div class="modal-bg"></div>
 
     <div class="modal" >
 
-      <img class="close-modal-btn" id="close-modal-btn" src="assets/icons/close.svg" onclick="closeModal()" />
+      <img  id="close-modal-btn" class="close-modal-btn" src="assets/icons/close.svg" onclick="closeModal()" />
 
-      <header class="contact__header">
+      <header id="contact__header" class="contact__header" >
         <h2 class="contact__header__title">Contactez-moi</h2>
         <h2 class="contact__header__title">Mimi Keel</h2>
       </header>
@@ -155,6 +154,7 @@
             <label for="firstName">Prénom</label>
             <input class="contact-form__input" type="text" name="firstName" id="firstName" data-type="name"
               placeholder="Prénom" required aria-required="true" />
+              <span class="error__message" aria-hidden="true">Veuillez entrer un prénom valide.</span>
           </div>
 
           <div class="form-data" data-error="Votre prénom doit comporter au moins 2 caractères."
@@ -162,6 +162,7 @@
             <label for="lastName">Nom</label>
             <input class="contact-form__input" type="text" name="lastName" id="lastName" data-type="name"
               placeholder="Nom" required aria-required="true" />
+              <span class="error__message" aria-hidden="true">Veuillez entrer un nom valide.</span>
           </div>
 
           <div class="form-data" data-error="Veuillez entrer un email valide." data-error-display="false">
@@ -169,6 +170,7 @@
             <input class="contact-form__input" type="email" name="email" id="email" data-type="email"
               placeholder="Votre adresse email" aria-labelledby="email" aria-describedby="email-format" required
               aria-required="true" />
+            <span class="error__message" aria-hidden="true">Veuillez entrer un email valide.</span>
             <span id="email-format" class="hidden">adresse@email.com</span>
           </div>
 
@@ -183,6 +185,7 @@
             <textarea class="contact-form__input contact-form__input--message-content" type="text" name="message"
               id="message" data-type="message" placeholder="Votre message ici" required
               aria-required="true"></textarea>
+              <span class="error__message" aria-hidden="true">Votre message doit comporter au moins 200 caractères.</span>
           </div>
 
         </fieldset>

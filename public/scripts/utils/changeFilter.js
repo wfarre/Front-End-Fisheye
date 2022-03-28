@@ -3,10 +3,7 @@
  * organize the picture according to the number of likes 
  * */
 const organizeByLikes = (media) => {
-    // const mediaArray = media;
-    let mediaArray = [];
-
-    mediaArray = media.sort((a, b) => b.likes - a.likes);
+    const mediaArray = media.sort((a, b) => b.likes - a.likes);
 }
 
 /**
@@ -14,10 +11,8 @@ const organizeByLikes = (media) => {
  * organize the picture according to their title 
  * */
 const organizeByTitles = (media) => {
-    // const mediaArray = media;
-    let mediaArray = [];
 
-    mediaArray = media.sort((a, b) => {
+    const mediaArray = media.sort((a, b) => {
         if (a.title.toLowerCase() < b.title.toLowerCase()) {
             return -1;
         }
@@ -32,10 +27,7 @@ const organizeByTitles = (media) => {
  * organizeByLikes() 
  * organize the picture according to their date */
 const organizeByDate = (media) => {
-    // const mediaArray = media;
-    let mediaArray = [];
-
-    mediaArray = media.sort((a, b) => new Date(b.date) - new Date(a.date));
+    const mediaArray = media.sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
 
