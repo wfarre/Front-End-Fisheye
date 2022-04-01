@@ -1,5 +1,6 @@
 const closeBtn = document.querySelector(".close-btn");
-const carousel = document.querySelector(".carousel");
+const carousel = document.getElementById("carousel");
+const carouselSection = document.getElementById("carousel-section");
 const body = document.getElementById("body");
 let currentSlide;
 
@@ -73,7 +74,7 @@ function displaySlideOnClick(pictureArray){
     pictureArray.forEach(picture => {
         picture.addEventListener("click", (e) => {
             const index = parseInt(picture.parentElement.id);
-            carousel.style.display = "block";
+            carouselSection.style.display = "block";
             carousel.setAttribute("aria-hidden", "false");
             body.setAttribute("aria-hidden", "true");
             displaySlide(index);
@@ -86,7 +87,7 @@ function displaySlideOnClick(pictureArray){
  * close the carousel and apply the different aria attributes
  */
 function closeCarousel(){
-    carousel.style.display = "none";
+    carouselSection.style.display = "none";
     body.classList.remove("no-scroll");
     body.setAttribute("aria-hidden", "false");
     carousel.setAttribute("aria-hidden", "true");

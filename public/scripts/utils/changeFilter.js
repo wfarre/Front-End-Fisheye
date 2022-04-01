@@ -48,13 +48,20 @@ const changeFilter = () => {
     const checkedFilter = document.querySelector(".checked").id;
     switch (checkedFilter) {
         case "popularity":
-            init(organizeByLikes);
+            organizeByLikes(pictureDataArray);
+            displayData(photographerInfo, pictureDataArray);
+
+            // init(organizeByLikes);
             break;
         case "date":
-            init(organizeByDate);
+            organizeByDate(pictureDataArray);
+            displayData(photographerInfo, pictureDataArray);
+            // init(organizeByDate);
             break;
         case "title":
-            init(organizeByTitles);
+            organizeByTitles(pictureDataArray);
+            displayData(photographerInfo, pictureDataArray);
+            // init(organizeByTitles);
             break;
         default:
             checkedFilter

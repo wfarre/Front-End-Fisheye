@@ -31,10 +31,6 @@ async function displayData(data) {
     })
 };
 
-let photographName = {
-    "name": " "
-};
-
 async function init() {
     // Récupère les datas des photographes
     const {

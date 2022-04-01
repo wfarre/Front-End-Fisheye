@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css" />
   <link href="css/photographer.css" rel="stylesheet" type="text/css" />
 
-
 </head>
 
 <body id="body">
@@ -109,14 +108,14 @@
   </footer>
 
 
-  <section id="carousel" class="carousel" role="dialog" aria-hidden="true" aria-label="image closeup view">
+  <section id="carousel-section"  class="carousel" >
 
     <div class="carousel__bg">
-      <div class="carousel__content">
+      <div id="carousel" class="carousel__content" role="dialog" aria-hidden="true" aria-label="image closeup view">
       </div>
       <div class="close-btn" role="button" aria-label="close dialog">
         <i class="fas fa-times cross"></i>
-        <span class="sr-only"></span>
+        <span class="sr-only">Fermer le carousel</span>
       </div>
       <div class="prev" id="prev" role="button" aria-label="Previous image"
         onclick="previousSlide(1)">
@@ -131,13 +130,13 @@
 
   </section>
 
-  <section id="contact_modal" class="contact_modal" role="dialog" aria-hidden="true" aria-labelledby="contact__header">
+  <section  id="contact-modal-section" class="contact_modal" >
 
     <div class="modal-bg"></div>
 
-    <div class="modal" >
+    <div class="modal" id="contact_modal" role="dialog" aria-hidden="true" aria-labelledby="contact__header">
 
-      <img  id="close-modal-btn" class="close-modal-btn" src="assets/icons/close.svg" onclick="closeModal()" />
+      <img id="close-modal-btn" class="close-modal-btn" src="assets/icons/close.svg" onclick="closeModal()" />
 
       <header id="contact__header" class="contact__header" >
         <h2 class="contact__header__title">Contactez-moi</h2>
@@ -149,23 +148,21 @@
         <fieldset class="fieldset information--fieldset">
           <legend class="legend information---legend">Vos coordonnées</legend>
 
-          <div class="form-data" data-error="Votre prénom doit comporter au moins 2 caractères."
-            data-error-display="false">
+          <div class="form-data">
             <label for="firstName">Prénom</label>
             <input class="contact-form__input" type="text" name="firstName" id="firstName" data-type="name"
               placeholder="Prénom" required aria-required="true" />
               <span class="error__message" aria-hidden="true">Veuillez entrer un prénom valide.</span>
           </div>
 
-          <div class="form-data" data-error="Votre prénom doit comporter au moins 2 caractères."
-            data-error-display="false">
+          <div class="form-data">
             <label for="lastName">Nom</label>
             <input class="contact-form__input" type="text" name="lastName" id="lastName" data-type="name"
               placeholder="Nom" required aria-required="true" />
               <span class="error__message" aria-hidden="true">Veuillez entrer un nom valide.</span>
           </div>
 
-          <div class="form-data" data-error="Veuillez entrer un email valide." data-error-display="false">
+          <div class="form-data" >
             <label id="email" for="email">Email</label>
             <input class="contact-form__input" type="email" name="email" id="email" data-type="email"
               placeholder="Votre adresse email" aria-labelledby="email" aria-describedby="email-format" required
@@ -179,8 +176,7 @@
         <fieldset class="fieldset message--fieldset">
           <legend class="legend message-legend">Votre message</legend>
 
-          <div class="form-data" data-error="Votre message doit comporter au moins 200 caractères."
-            data-error-display="false">
+          <div class="form-data">
             <label for="message">Votre message</label>
             <textarea class="contact-form__input contact-form__input--message-content" type="text" name="message"
               id="message" data-type="message" placeholder="Votre message ici" required
@@ -199,7 +195,7 @@
 
   </section>
 
-  <script src="./scripts/utils/getLikeNumber.js"></script>
+  
 
   <script src="./scripts/utils/selector.js"></script>
   <script src="./scripts/utils/slider.js"></script>
@@ -209,7 +205,7 @@
   <script src="./scripts/factories/photographer.js"></script>
 
   <!-- pages -->
-  <script src="./scripts/pages/photographer.js"></script>
+  <script async src="./scripts/pages/photographer.js"></script>
 
   <!-- models -->
   <script src="/public/scripts/models/Photographer.js"></script>
@@ -222,6 +218,11 @@
 
   <script src="./scripts/utils/contactForm.js"></script>
   <!-- <script src="./scripts/utils/filters.js"></script> -->
+
+
+
+
+  <script defer src="./scripts/utils/getLikeNumber.js"></script>
 </body>
 
 </html>

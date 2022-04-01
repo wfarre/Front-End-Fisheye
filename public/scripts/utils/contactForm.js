@@ -1,22 +1,21 @@
-function displayModal() {
-    const modal = document.getElementById("contact_modal");
-    const main = document.getElementById("main");
-    const closeBtn = document.getElementById("close-modal-btn");
+const contactModalSection = document.getElementById("contact-modal-section");
+const modal = document.getElementById("contact_modal");
+const main = document.getElementById("main");
+const closeContactBtn = document.getElementById("close-modal-btn");
 
+
+function displayModal() {
     main.setAttribute("aria-hidden", true);
     modal.setAttribute("aria-hiddent", false);
-    modal.style.display = "flex";
-    closeBtn.focus();
+    contactModalSection.style.display = "flex";
+    closeContactBtn.focus();
     console.log(closeBtn);
 }
 
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    const main = document.getElementById("main");
-
     modal.setAttribute("aria-hidden", true);
     main.setAttribute("aria-hiddent", false);
-    modal.style.display = "none";
+    contactModalSection.style.display = "none";
 }
 
 const inputs = document.querySelectorAll(".contact-form__input");
@@ -28,10 +27,12 @@ inputs.forEach(input => {
     const formDataToTarget = input.parentElement;
 
     input.addEventListener("input", () => {
-        if (checkIfInputIsValid(input, input.getAttribute("data-type"))) {
-            removeDanger(formDataToTarget);
-        } else {
-            displayDanger(formDataToTarget);
+        if (formDataToTarget.classList.contains("error") || formDataToTarget.classList.contains("valid")) {
+            if (checkIfInputIsValid(input, input.getAttribute("data-type"))) {
+                removeDanger(formDataToTarget);
+            } else {
+                displayDanger(formDataToTarget);
+            }
         }
     });
 
@@ -154,7 +155,7 @@ function removeDanger(formData) {
 function displayDanger(formData) {
     formData.classList.add("error");
     formData.classList.remove("valid");
-    
+
 
     // formData.setAttribute("data-error-display", true);
 }
@@ -164,7 +165,7 @@ function displayDanger(formData) {
 document.addEventListener("keydown", event => {
     const pressedKey = event.key;
 
-    if(pressedKey === "Escape"){
+    if (pressedKey === "Escape") {
         closeModal();
         closeCarousel();
     }

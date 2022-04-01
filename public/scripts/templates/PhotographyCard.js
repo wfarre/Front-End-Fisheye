@@ -28,7 +28,7 @@ class PhotographyCard {
             <div class="image-wrapper">
                 ${mediaToDisplay}
             </div>
-            <div class="card__header">
+            <div class="card__header" id="${this._photography.id}">
                 <h2 class="card__header__title">
                     ${this._photography.title}
                 </h2>
@@ -77,7 +77,7 @@ class PhotographyCard {
                     ${mediaDiv}
                 </div>
             </div>
-            <div class="card__header">
+            <div class="card__header" id="${this._photography.id}">
                 <h2 class="card__header__title">
                     ${this._photography.title}
                 </h2>

@@ -28,13 +28,6 @@ async function getPhotographers() {
         }
     });
 
-    console.log("boule");
-    console.log(photographerData);
-
-
-
-
-
     // et bien retourner le tableau photographers seulement une fois
     return {
         photographerData,
@@ -77,8 +70,20 @@ async function displayData(photographer, mediaData) {
 
         index++;
     });
+
+     /* Displaty the right slide when we open the slider */
+     let pictures = document.querySelectorAll(".card > .image-wrapper");
+
+     /* Display the slider at the right picture */
+     displaySlideOnClick(pictures);
+ 
+     /* We update the number of likes for each pictures but also the total number in the footer*/
+     checkMyLikes();
+     getMyTotalLikes();
 };
 
+let pictureDataArray = [];
+let photographerInfo;
 
 async function init(organizingFunction) {
     // Récupère les datas des photographes
@@ -89,18 +94,18 @@ async function init(organizingFunction) {
         mediaData
     } = await getPhotographers();
 
-    organizingFunction(mediaData);
-    displayData(photographerData[0], mediaData);
+    pictureDataArray = mediaData.map(pictureInfo => {
+        return pictureInfo;
+    });
 
-    /* Displaty the right slide when we open the slider */
-    let pictures = document.querySelectorAll(".card > .image-wrapper");
+    photographerInfo = photographerData[0]
 
-    /* Display the slider at the right picture */
-    displaySlideOnClick(pictures);
+    console.log(pictureDataArray);
 
-    /* We update the number of likes for each pictures but also the total number in the footer*/
-    checkMyLikes();
-    getMyTotalLikes();
+    organizingFunction(pictureDataArray);
+    displayData(photographerData[0], pictureDataArray);
+
+   
 };
 
 init(organizeByLikes);
