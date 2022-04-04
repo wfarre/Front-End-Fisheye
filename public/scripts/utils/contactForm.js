@@ -1,7 +1,7 @@
 const contactModalSection = document.getElementById("contact-modal-section");
 const modal = document.getElementById("contact_modal");
 const main = document.getElementById("main");
-const closeContactBtn = document.getElementById("close-modal-btn");
+const closeContactBtn = document.getElementById("close-modal-btn-wrapper");
 
 
 function displayModal() {
@@ -29,18 +29,18 @@ inputs.forEach(input => {
     input.addEventListener("input", () => {
         if (formDataToTarget.classList.contains("error") || formDataToTarget.classList.contains("valid")) {
             if (checkIfInputIsValid(input, input.getAttribute("data-type"))) {
-                removeDanger(formDataToTarget);
+                removeDanger(input);
             } else {
-                displayDanger(formDataToTarget);
+                displayDanger(input);
             }
         }
     });
 
     input.addEventListener("blur", () => {
         if (checkIfInputIsValid(input, input.getAttribute("data-type"))) {
-            removeDanger(formDataToTarget);
+            removeDanger(input);
         } else {
-            displayDanger(formDataToTarget);
+            displayDanger(input);
         }
     });
 })
@@ -52,29 +52,30 @@ inputs.forEach(input => {
  * */
 function validateForm(event) {
     event.preventDefault();
+
+    let errorArray = [];
+    
     /* validate the contact form when user submit the contact form */
-
     inputs.forEach(input => {
-        const formDataToTarget = input.parentElement;
-        console.log(formDataToTarget);
-
 
         if (checkIfInputIsValid(input, input.getAttribute("data-type"))) {
-            removeDanger(formDataToTarget);
-
-            const myEmailObject = {
-                "name": inputs[0].value,
-                "familyName": inputs[1].value,
-                "email": inputs[2].value,
-                "message": inputs[3].value
-            }
-            const message = new Email(myEmailObject);
-            /* log the submitted email */
-            console.log(message);
+            removeDanger(input);
         } else {
-            displayDanger(formDataToTarget);
+            displayDanger(input);
+            errorArray.push("error");
         };
     })
+
+    if(errorArray.length === 0){
+        const myEmailObject = {
+            "name": inputs[0].value,
+            "familyName": inputs[1].value,
+            "email": inputs[2].value,
+            "message": inputs[3].value
+        }
+        const message = new Email(myEmailObject);
+        console.log(message);
+    }
 }
 
 /**
@@ -142,22 +143,32 @@ function checkIfMessageIsValid(input) {
  * removeDanger() : 
  * if element valid, remove error  
  * */
-function removeDanger(formData) {
-    // formData.setAttribute("data-error-display", false);
-    formData.classList.remove("error");
-    formData.classList.add("valid");
+function removeDanger(input) {
+    const formDataToTarget = input.parentElement;
+    const errorMessage = formDataToTarget.querySelector(".error__message");
+
+
+    formDataToTarget.classList.remove("error");
+    formDataToTarget.classList.add("valid");
+    input.setAttribute("aria-invalid", "false");
+    errorMessage.setAttribute("aria-hidden", "true");
+
+
 }
 
 /**
  * displayDanger() : 
  * if element not valid, display error  
  * */
-function displayDanger(formData) {
-    formData.classList.add("error");
-    formData.classList.remove("valid");
+function displayDanger(input) {
+    const formDataToTarget = input.parentElement;
+    const errorMessage = formDataToTarget.querySelector(".error__message");
 
+    formDataToTarget.classList.add("error");
+    formDataToTarget.classList.remove("valid");
+    input.setAttribute("aria-invalid", "true");
+    errorMessage.setAttribute("aria-hidden", "false");
 
-    // formData.setAttribute("data-error-display", true);
 }
 
 

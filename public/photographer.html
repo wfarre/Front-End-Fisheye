@@ -2,40 +2,44 @@
 <html lang="fr">
 
 <head>
-  <!-- fontawesome icons -->
-  <script src="https://kit.fontawesome.com/0b857a3b0d.js" crossorigin="anonymous"></script>
-
-
   <meta charset="utf-8">
 
   <title>Fisheye - photographe </title>
 
   <link rel="icon" type="image/png" href="assets/images/logo.png">
+
+  <!-- fontawesome icons -->
+  <script src="https://kit.fontawesome.com/0b857a3b0d.js" crossorigin="anonymous"></script>
+
+  <!-- GOOGLE FONTS  -->
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.plyr.io/3.6.12/plyr.css" />
+
+  <!-- stylesheet  -->
   <link href="css/photographer.css" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body id="body">
 
-  <header class="body-header" role="header" aria-hidden="false">
+  <header class="body-header" role="banner" aria-hidden="false">
     <a href="./" aria-label="Fisheye">
       <img src="assets/images/logo.png" class="logo fisheye" alt="Fisheye Home page"/>
     </a>
   </header>
+
   <main id="main" aria-hidden="false">
 
     <section id="photograph-header" class="photograph-header">
 
-      <div class="photographer-info">
+      <!-- <div class="photographer-info">
 
         <div class="photographer-info__name">
-          <p id="name" class="info-text info-text--name" aria-label="nom du photographe"></p>
+          <h2 id="name" class="info-text info-text--name" aria-label="nom du photographe"></h2>
         </div>
 
         <div class="photographer-info__city">
-          <p id="city" class="info-text info-text--city" aria-label="localisation du photographe"></p>
+          <h3 id="city" class="info-text info-text--city" aria-label="localisation du photographe"></h3>
         </div>
 
         <div class="photographer-info__tagline">
@@ -51,36 +55,42 @@
 
       <div class="image-wrapper">
         <img id="profile-pic" src="" alt="photographie du photographe">
-      </div>
+      </div> -->
 
     </section> <!-- .photograph-header  -->
 
     <section class="picture-section" id="picture-section">
 
       <header class="select">
-        <input class="dropdown-checkbox" type="checkbox" id="dropdown">
-        <label class="select__label" for="dropdown"  >
 
-          <div class="select__header">
-            <div class="select__label__text">
-              <p>Trier par</p>
-            </div>
-          </div>
+        <input class="dropdown-checkbox" type="checkbox" id="dropdown">
+        <label id="select__label" class="select__label" for="dropdown" >
+                Trier par
+        </label>
+
 
           <div class="selector-wrapper">
-            <button class="dropdown-menu__button" aria-haspopup="true" aria-expanded="false">
-              Popularité
+            <button id="dropdown-menu" class="dropdown-menu__button" aria-haspopup="true" aria-expanded="false">
+              <span>Popularité</span>
+              <i class="fas fa-chevron-up chevron-icon"></i>
             </button>
 
             <ul class="selector" id="filter" role="listbox" aria-controls="dropdown-menu" aria-labelledby="select__label"
               tabindex="-1">
-              <li role="option" class="option" id="popularity" aria-label="Trier par popularité">Popularité</li>
-              <li role="option" class="option" id="date" aria-label="Trier par date">Date</li>
-              <li role="option" class="option" id="title" aria-label="Trier par titre">Titre</li>
+              <li role="option" class="option checked" id="popularity" aria-label="Trier par popularité">
+                <span>Popularité</span>
+                <i class="fas fa-chevron-up chevron-icon"></i>
+              </li>
+              <li role="option" class="option" id="date" aria-label="Trier par date">
+                <span>Date</span>
+                <i class="fas fa-chevron-up chevron-icon"></i>
+              </li>
+              <li role="option" class="option" id="title" aria-label="Trier par titre">
+                <span>Titre</span>
+                <i class="fas fa-chevron-up chevron-icon"></i>
+              </li>
             </ul>
           </div>
-
-        </label>
 
       </header>
 
@@ -88,44 +98,47 @@
         <!-- <div class="loader"></div> -->
       </div>
 
-    </section>
-
-   
+    </section> <!-- #picture-section -->
 
   </main>
 
-  <footer class="sub-info footer" role="contentinfo">
+  <aside class="sub-info footer">
 
-    <div class="sub-info__likes" aria-label="nombre de likes">
+    <div class="sub-info__likes">
       <span class="like-quantity"></span>
       <i class="fas fa-heart"></i>
     </div>
 
-    <div class="sub-info__price" aria-label="prix du photographe">
+    <div class="sub-info__price">
       <span id="price" class="price"></span>
     </div>
 
-  </footer>
+  </aside>
 
 
   <section id="carousel-section"  class="carousel" >
 
     <div class="carousel__bg">
-      <div id="carousel" class="carousel__content" role="dialog" aria-hidden="true" aria-label="image closeup view">
+
+      <div id="carousel" class="carousel__content" role="dialog" aria-hidden="true" aria-label="vu de l'image en plein écran">
       </div>
-      <div class="close-btn" role="button" aria-label="close dialog">
+
+      <a href="#" class="close-btn" role="button" aria-label="ferme la boite de dialogue">
         <i class="fas fa-times cross"></i>
         <span class="sr-only">Fermer le carousel</span>
-      </div>
-      <div class="prev" id="prev" role="button" aria-label="Previous image"
+      </a>
+
+      <a href="#" class="prev" id="prev" role="button" aria-label="image précédente"
         onclick="previousSlide(1)">
         <i class="fas fa-angle-left arrow"></i>
         <span class="sr-only">Aller à la photographie précédente</span>
-      </div>
-      <div class="next" id="next" role="button" aria-label="Next image" onclick="nextSlide(1)">
+    </a>
+
+      <a href="#" class="next" id="next" role="button" aria-label="image suivante" onclick="nextSlide(1)">
         <i class="fas fa-angle-right arrow"></i>
-        <span class="sr-only">Aller à la prochaine photographie</span>
-      </div>
+        <span class="sr-only">Aller à la photographie suivante</span>
+      </a>
+
     </div>
 
   </section>
@@ -136,14 +149,16 @@
 
     <div class="modal" id="contact_modal" role="dialog" aria-hidden="true" aria-labelledby="contact__header">
 
-      <img id="close-modal-btn" class="close-modal-btn" src="assets/icons/close.svg" onclick="closeModal()" />
+      <a href="#" class="close-modal-btn-wrapper" id="close-modal-btn-wrapper" onclick="closeModal()" >
+        <img id="close-modal-btn" class="close-modal-btn" src="assets/icons/close.svg"  alt="ferme le formulaire de contact" />
+      </a>
 
       <header id="contact__header" class="contact__header" >
         <h2 class="contact__header__title">Contactez-moi</h2>
         <h2 class="contact__header__title">Mimi Keel</h2>
       </header>
 
-      <form action="photographer.html" method="get" class="form contact-form" onsubmit="validateForm(event)">
+      <form action="photographer.html" method="get" class="form contact-form" >
 
         <fieldset class="fieldset information--fieldset">
           <legend class="legend information---legend">Vos coordonnées</legend>
@@ -151,21 +166,21 @@
           <div class="form-data">
             <label for="firstName">Prénom</label>
             <input class="contact-form__input" type="text" name="firstName" id="firstName" data-type="name"
-              placeholder="Prénom" required aria-required="true" />
+              placeholder="Prénom" aria-invalid="true" required aria-required="true" />
               <span class="error__message" aria-hidden="true">Veuillez entrer un prénom valide.</span>
           </div>
 
           <div class="form-data">
             <label for="lastName">Nom</label>
             <input class="contact-form__input" type="text" name="lastName" id="lastName" data-type="name"
-              placeholder="Nom" required aria-required="true" />
+              placeholder="Nom" aria-invalid="true" required aria-required="true" />
               <span class="error__message" aria-hidden="true">Veuillez entrer un nom valide.</span>
           </div>
 
           <div class="form-data" >
-            <label id="email" for="email">Email</label>
+            <label for="email">Email</label>
             <input class="contact-form__input" type="email" name="email" id="email" data-type="email"
-              placeholder="Votre adresse email" aria-labelledby="email" aria-describedby="email-format" required
+              placeholder="Votre adresse email" aria-labelledby="email" aria-describedby="email-format" required aria-invalid="true"
               aria-required="true" />
             <span class="error__message" aria-hidden="true">Veuillez entrer un email valide.</span>
             <span id="email-format" class="hidden">adresse@email.com</span>
@@ -178,8 +193,8 @@
 
           <div class="form-data">
             <label for="message">Votre message</label>
-            <textarea class="contact-form__input contact-form__input--message-content" type="text" name="message"
-              id="message" data-type="message" placeholder="Votre message ici" required
+            <textarea class="contact-form__input contact-form__input--message-content" name="message"
+              id="message" data-type="message" placeholder="Votre message ici" required aria-invalid="true"
               aria-required="true"></textarea>
               <span class="error__message" aria-hidden="true">Votre message doit comporter au moins 200 caractères.</span>
           </div>
@@ -187,7 +202,7 @@
         </fieldset>
 
 
-        <button type="submit" class="contact_button">Envoyer</button>
+        <button type="submit" class="contact_button" onclick="validateForm(event)">Envoyer</button>
 
       </form>
 
@@ -205,7 +220,7 @@
   <script src="./scripts/factories/photographer.js"></script>
 
   <!-- pages -->
-  <script async src="./scripts/pages/photographer.js"></script>
+  <script src="./scripts/pages/photographer.js"></script>
 
   <!-- models -->
   <script src="/public/scripts/models/Photographer.js"></script>
@@ -222,7 +237,7 @@
 
 
 
-  <script defer src="./scripts/utils/getLikeNumber.js"></script>
+  <script defer src="./scripts/utils/likeCounter.js"></script>
 </body>
 
 </html>

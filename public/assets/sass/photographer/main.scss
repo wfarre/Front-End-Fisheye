@@ -1,3 +1,4 @@
+@import "./base/colors";
 @import "./utils/breakpoints";
 
 @import "./utils/animations";
@@ -20,6 +21,8 @@ body{
     width: 100%;
     margin: 0;
     margin-top: 8px;
+
+    font-size: 18px;
 }
 
 #main{
@@ -30,7 +33,7 @@ body{
 }
 
 .body-header{
-    margin: 0 100px;
+    margin: 0 7%;
 }
 
 .logo{
@@ -52,8 +55,33 @@ body{
     left: 0;
   }
 
-  .footer{
-    z-index: 900;
-  }
 
-  
+  /* picture section  */
+
+.picture-section{
+  margin: 0 7%;
+  margin-top: 20px;
+}
+
+
+
+.sub-info{
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  right: 20px;
+  width: 376px;
+  padding: 0 20px;
+  background: $button-bg-color-secondary;
+  color: $button-txt-color-secondary;
+  font-size: 1.3em;
+  border-radius: 5px 5px 0 0;
+  z-index: 900;
+}
+
+
+.chevron-icon{
+  z-index: 99;
+
+}

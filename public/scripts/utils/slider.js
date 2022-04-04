@@ -32,7 +32,7 @@ function displaySlide(n) {
     videos.forEach(video => {
         video.addEventListener("click", () => {
             video.play();
-        })
+        });
     });  
 }
 
@@ -77,6 +77,7 @@ function displaySlideOnClick(pictureArray){
             carouselSection.style.display = "block";
             carousel.setAttribute("aria-hidden", "false");
             body.setAttribute("aria-hidden", "true");
+            closeBtn.focus();
             displaySlide(index);
         });
     });

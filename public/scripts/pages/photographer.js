@@ -1,4 +1,13 @@
-//Mettre le code JavaScript lié à la page photographer.html
+let pictureDataArray = [];
+let photographerInfo;
+
+
+/**
+ * 
+ * getPhotographers():
+ * fetch the data from the API (here the JSON file)
+ * and return an array with the photographer's data and his/her pictures' data
+ */
 async function getPhotographers() {
     // // Penser à remplacer par les données récupérées dans le json
     let data = await fetch('../public/data/photographers.json').then(response => {
@@ -36,38 +45,29 @@ async function getPhotographers() {
 }
 
 
-let totalLikes = 0;
 
-
+/**
+ * displayData():
+ * the function displays all the data in the DOM
+ */
 async function displayData(photographer, mediaData) {
+
+
+    const photographerHeader = document.getElementById("photograph-header");
+
+
 
     const profileModel = new PhotographerFactory3(photographer, "photographer");
     const Template = new PhotographerCard(profileModel);
-    Template.loadDom();
+    const photoProfile = Template.loadDom();
 
-    const pictureContainer = document.querySelector(".container--picture");
-    const carouselContent = document.querySelector(".carousel__content");
+    photographerHeader.appendChild(photoProfile);
 
     let index = 0;
 
+    /* we display each picture in the DOM */
     mediaData.map(media => {
-
-        /* use the photographer's name for the media's path */
-        const PhotoModel = new PhotographerFactory3(({
-            "media": media,
-            "photographerName": profileModel._name
-        }), "media");
-
-        const PhotoTemplate = new PhotographyCard(PhotoModel);
-        const card = PhotoTemplate.createPhotographyCard();
-        const slide = PhotoTemplate.createSlide();
-
-        // give an index as an id to every card to be able to display the carousel at the right slide 
-        card.setAttribute("id", index);
-
-        pictureContainer.appendChild(card);
-        carouselContent.appendChild(slide);
-
+        displayPicture(media, profileModel._name, index);
         index++;
     });
 
@@ -82,30 +82,46 @@ async function displayData(photographer, mediaData) {
      getMyTotalLikes();
 };
 
-let pictureDataArray = [];
-let photographerInfo;
 
+/**
+ * init():
+ * initialize the DOM by getting the data
+ **/
 async function init(organizingFunction) {
     // Récupère les datas des photographes
     const {
-        photographerData
-    } = await getPhotographers();
-    const {
-        mediaData
+        photographerData, mediaData
     } = await getPhotographers();
 
     pictureDataArray = mediaData.map(pictureInfo => {
         return pictureInfo;
     });
 
-    photographerInfo = photographerData[0]
-
-    console.log(pictureDataArray);
+    photographerInfo = photographerData[0];
 
     organizingFunction(pictureDataArray);
     displayData(photographerData[0], pictureDataArray);
-
-   
 };
 
 init(organizeByLikes);
+
+
+function displayPicture(media, photographer, index){
+    const pictureContainer = document.querySelector(".container--picture");
+    const carouselContent = document.querySelector(".carousel__content");
+    /* use the photographer's name for the media's path */
+    const PhotoModel = new PhotographerFactory3(({
+       "media": media,
+       "photographerName": photographer
+   }), "media");
+
+   const PhotoTemplate = new PhotographyCard(PhotoModel);
+   const card = PhotoTemplate.createPhotographyCard();
+   const slide = PhotoTemplate.createSlide();
+
+   // give an index as an id to every card to be able to display the carousel at the right slide 
+   card.setAttribute("id", index);
+
+   pictureContainer.appendChild(card);
+   carouselContent.appendChild(slide);
+}

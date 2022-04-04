@@ -18,7 +18,7 @@ options.forEach(option => {
         dropdownBtn.setAttribute("aria-haspopup", true);
         dropdownBtn.setAttribute("aria-expanded", false);
         dropdown.style.display = "none";
-        dropdownBtn.style.display = "block";
+        dropdownBtn.style.display = "flex";
 
         options.forEach(option => {
             option.classList.remove("checked");

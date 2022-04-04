@@ -1,20 +1,11 @@
 .loader{
     content: " ";
-    border-radius: 50%;
-    // background-color: blue;
-    border: 16px solid rgb(230, 230, 230);
-    border-right: 16px solid #901C1C ;
     height: 50px;
     width: 50px;
-
+    border-radius: 50%;
+    border: 16px solid rgb(230, 230, 230);
+    border-right: 16px solid $color-primary ;
+    
     animation: spin 1.5s infinite;
 }
 
-@keyframes spin {
-    0%{
-        transform: rotate(0deg);
-    }
-    100%{
-        transform: rotate(360deg);
-    }
-}

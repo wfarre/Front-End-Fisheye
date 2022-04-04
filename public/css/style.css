@@ -83,4 +83,9 @@ h1 {
   cursor: pointer;
 }
 
+.photographer-card-wrapper{
+  text-decoration: none;
+  color: black;
+}
+
 /*# sourceMappingURL=style.css.map */

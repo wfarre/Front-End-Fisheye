@@ -25,7 +25,8 @@ const organizeByTitles = (media) => {
 
 /** 
  * organizeByLikes() 
- * organize the picture according to their date */
+ * organize the picture according to their date 
+ **/
 const organizeByDate = (media) => {
     const mediaArray = media.sort((a, b) => new Date(b.date) - new Date(a.date));
 }
@@ -40,28 +41,30 @@ filterSelector.addEventListener("click", () => {
     changeFilter();
 })
 
+/**
+ * changeFilter():
+ * First, it removes all the cards and slides from the DOM.
+ * Then, it orders the array with all the picture data according to the filter.
+ * To finish, it displays the data.
+ * */
 const changeFilter = () => {
     /* if user changes the filter, it will remove the cards from the previous selection */
     removeAllCardsAllSlides();
 
-    // const checkedFilter = document.querySelector(".dropdown-menu__button").innerHTML;
     const checkedFilter = document.querySelector(".checked").id;
+    
     switch (checkedFilter) {
         case "popularity":
             organizeByLikes(pictureDataArray);
             displayData(photographerInfo, pictureDataArray);
-
-            // init(organizeByLikes);
             break;
         case "date":
             organizeByDate(pictureDataArray);
             displayData(photographerInfo, pictureDataArray);
-            // init(organizeByDate);
             break;
         case "title":
             organizeByTitles(pictureDataArray);
             displayData(photographerInfo, pictureDataArray);
-            // init(organizeByTitles);
             break;
         default:
             checkedFilter
@@ -78,6 +81,10 @@ const changeFilter = () => {
 function removeAllCardsAllSlides() {
     const cards = document.querySelectorAll(".card");
     let slides = document.querySelectorAll(".slide");
+    const photographerHeader = document.querySelector(".photographer-profile");
+
+    photographerHeader.remove();
+    
     cards.forEach(card => {
         card.remove();
     });

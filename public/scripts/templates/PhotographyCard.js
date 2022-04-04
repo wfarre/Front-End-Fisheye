@@ -8,7 +8,7 @@ class PhotographyCard {
 
         const photographyCard = document.createElement("article");
         photographyCard.classList.add("card");
-        photographyCard.setAttribute("aria-label", this._photography.title + ", closeup view")
+        photographyCard.setAttribute("aria-label", this._photography.title + ", vu plein écran")
 
         let mediaToDisplay;
 
@@ -25,14 +25,14 @@ class PhotographyCard {
         }
 
         photographyCard.innerHTML = `
-            <div class="image-wrapper">
+            <a href="#" class="image-wrapper">
                 ${mediaToDisplay}
-            </div>
+            </a>
             <div class="card__header" id="${this._photography.id}">
                 <h2 class="card__header__title">
                     ${this._photography.title}
                 </h2>
-                <div checked="false" class="likes">
+                <div checked="false" class="likes" aria-label="likes">
                     <span class="like-counter">
                         ${this._photography.likes}
                     </span>

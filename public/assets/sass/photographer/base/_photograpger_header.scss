@@ -1,19 +1,21 @@
 /* photoraph header  */
-.photograph-header {
-    background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+.photographer-profile {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 300px;
+    margin: 0 7%;
+    padding: 0 3.5%;
+    background-color: $bg-color-secondary;
+    column-gap: 18px;
     @include mobile{
+        flex-direction: column;
+        text-align: center;
+        height: fit-content;
         margin-top: 20px;
         padding-top: 20px;
         padding-bottom: 20px ;
-        height: fit-content;
         row-gap: 18px;
-        flex-direction: column;
-        text-align: center;
     }
 }
 
@@ -27,11 +29,11 @@
 
 .image-wrapper img{
     position: absolute;
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
     top:0;
     left:0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;  
 }
 
 .info-text{
@@ -54,31 +56,19 @@
     }
 }
 
-/* .photographer-info{
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-} */
-.photographer-info__name{
-    font-size: 64px;
-    color:#D3573C;
+.photographer-info__name > .info-text{
+    font-size: 3.56em;
+    color: $color-primary;
     margin: 0;
 }
 
-.photographer-info__city{
-    font-size: 24px;
-    color:#901C1C;
+.photographer-info__city > .info-text{
+    font-size: 1.3em;
+    color: $color-secondary;
 }
 
 .photographer-info__tagline{
-    font-size: 18px;
-    color: #525252;
+    font-size: 1em;
+    color: $color-tertiary;
 }
 
-/* picture section  */
-
-.picture-section{
-    margin: 0 100px;
-    margin-top: 20px;
-}

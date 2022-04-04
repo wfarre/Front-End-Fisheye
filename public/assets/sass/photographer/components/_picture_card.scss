@@ -1,25 +1,9 @@
-
-.sub-info{
-    background: #DB8876;
-    color: #000;
-    font-size: 24px;
-    display: flex;
-    justify-content: space-between;
-    padding: 0 20px;
-    width: 376px;
-    position: fixed;
-    bottom: 0;
-    right: 20px;
-    border-radius: 5px 5px 0 0;
-}
-
-
-
 .card{
-    height: 350px;
-    width: 350px;
     display: flex;
     flex-direction: column;
+    height: 350px;
+    width: 350px;
+   
     @include mobile{
         width: 100%;
     }
@@ -39,11 +23,12 @@
 }
 
 .card .image-wrapper img{
-    width: 100%;
-    height: 100%;
     position: absolute;
     top:0;
     left: 0;
+    width: 100%;
+    height: 100%;
+   
     object-fit: cover;
 }
 
@@ -52,76 +37,47 @@
     justify-content: space-between;
     align-items: center;
     
-    color: #901C1C;
+    color: $color-secondary;
     
 }
 
 .card__header__title{
-    font-size: 24px;
-    font-weight: 400;
     margin:10px 0;
-    /* margin-top: 10px; */
+    font-size: 1.3em;
+    font-weight: 400;
+   
 }
 
 .likes{
-    // display: inline-flex;
-    // width: 50px;
-    font-size: 24px;
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 1.3em;
     z-index: 40;
 }
 
-.like-counter{
-    margin-right: 10px;
-}
-
-// .like-logo-wrapper{
-//     position: relative;
-//     display: inline-block;
-//     height: 24px;
-//     width: 24px;
-
-// }
-
 .like-logo{
-    // position: absolute;
-    // top: 50%;
-    // left: 50%;
-    // transform: translate(-50%, -50%);
-    font-size: 19px;
-    // display: none;
+    font-size: 1em;
+
     transition: all 500ms;
-    // transition-delay: 900ms;
     &:hover{
         cursor: pointer;
-        font-size: 21px;
-        // color: white;
+        transform: scale(1.2);
     }
 }
 
 .byebye-heart{
-    // display: none;
     animation: fly-away 1s ease-in ;
-    color: #000;
-}
-
-@keyframes fly-away {
-    0%{
-        opacity: 1;
-        transform: translateY(0);
-    }
-    100%{
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    
+    color: $button-txt-color-secondary;
 }
 
 video{
-    height: 100%;
-    width: 100%;
     position: absolute;
     top:0;
     left: 0;
+    height: 100%;
+    width: 100%;
     object-fit: cover;
 }
 
@@ -130,6 +86,6 @@ video{
     z-index: 100;
     height: 100%;
     width: 100%;
-    background: white;
+    background: $bg-color-primary;
 
 }

@@ -1,6 +1,9 @@
 .select{
     position: relative;
     height: fit-content;
+    display: flex;
+    justify-content: flex-start;
+    column-gap: 25px;
 }
 
 .dropdown-checkbox:checked ~ .select__label .option{
@@ -14,17 +17,11 @@
 .select__label{
     display: flex;
     justify-content: flex-start;
-    align-items: flex-start;
-    flex-direction: row;
-    column-gap: 25px;
-}
-
-.select__label__text{
-    font-size: 18px;
-    font-weight: bold;
-    display: flex;
     align-items: center;
-    height: 100%;
+    flex-direction: row;
+    height: 69px;
+    font-size: 1em;
+    font-weight: bold;
 }
 
 .selector-wrapper{
@@ -32,45 +29,40 @@
     width: 170px;
 }
 
-
 .selector{
     position: absolute;
     display: none;
     flex-direction: column-reverse;
-    padding: 0;
-    border-radius: 5px;
-    width: 170px;
-    overflow: hidden;
-    
     top: 0;
     left:0;
     margin: 0;
+    width: 170px;
+    padding: 0;
+    border-radius: 5px; 
+    overflow: hidden;
     z-index: 1;
     animation: dropdown-apparition 500ms forwards;
     transform-origin: top center;
 }
 
-@keyframes dropdown-apparition {
-    0%{
-        transform: scaleY(0.33);
-    }
-    100%{
-        transform: scaleY(1);
-    }
-}
+
 
 .option{
-    // display: none;
     position: relative;
     display: flex;
     align-items: center;
-    background: #901C1C;
-    color: #FAFAFA;
-    font-size: 18px;
-    width: 100%;
+    justify-content: space-between;
+    width: calc(100% - 40px);
     height: 69px;
     padding-left: 20px;
+    padding-right: 20px;
+    background: $button-bg-color-primary;
+    color: $button-txt-color-primary;
+    font-size: 1em;
     border: none;
+    .chevron-icon{
+        display: none;
+    }
 }
 
 .option:hover{
@@ -84,37 +76,58 @@
     left: 10px;
     width:150px;
     height: 1px;
-    background: #FAFAFA;
+    background: $bg-color-secondary;
 }
 
 .option.checked{
     display: flex;
     order:1;  
+    .chevron-icon{
+        display: block;
+        // transform: rotate(180deg);
+        animation: rotate-chevron 500ms forwards;
+    }
 }
 
+@keyframes rotate-chevron {
+    0%{
+        transform: rotateX(0);
+    }
+
+    100%{
+        transform: rotateX(180deg);
+    }
+    
+}
 .option.checked::after{
-    display: none;
+    width: 0;
+    height: 0;
 }
 
 
 .dropdown-menu{
     &__button{
     position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     top:0;
     left: 0;
-    align-items: center;
-    background: #901C1C;
-    color: #FAFAFA;
-    font-size: 18px;
     width: 100%;
     height: 69px;
     padding-left: 20px;
+    padding-right: 20px;
     border-radius: 5px;
-    border: none;
+    background: $button-bg-color-primary;
+    color: $button-txt-color-primary;
+    align-items: center;
     text-align: left;
+    font-size: 1em;
+    border: none;
     &:hover{
         cursor: pointer;
     }
     }
 
 }
+

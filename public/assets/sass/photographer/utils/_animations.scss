@@ -1,10 +1,55 @@
 @keyframes buzzing {
-    0% {
-      transform: translateX(-10px);
-    }
-  
-    100% {
-      transform: translateX(10px);
-    }
-  
+  0% {
+    transform: translateX(-10px);
   }
+
+  100% {
+    transform: translateX(10px);
+  }
+
+}
+
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes fly-away {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+}
+
+@keyframes apparition-from-top {
+  0% {
+      opacity: 0;
+      transform: translateY(-100%);
+  }
+
+  100% {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes dropdown-apparition {
+  0%{
+      transform: scaleY(0.33);
+  }
+  100%{
+      transform: scaleY(1);
+  }
+}

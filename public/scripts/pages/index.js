@@ -23,7 +23,6 @@ async function displayData(data) {
     const photographersSection = document.querySelector(".photographer_section");
 
     const Photographers = data.map(photographer => new PhotographerFactory3(photographer, "photographer"));
-    console.log(Photographers);
     Photographers.map(photographer => {
         const Template = new PhotographerCard(photographer);
         const photographerCard = Template.createPhotographerCard();
@@ -38,13 +37,13 @@ async function init() {
     } = await getPhotographers();
     displayData(photographersData);
 
-    const profiles = document.querySelectorAll(".card");
+    // const profiles = document.querySelectorAll(".card");
 
-    profiles.forEach(profile => {
-        profile.addEventListener("click", (e) => {
-            window.location.href = "./photographer.html?id="+profile['id'];
-        });
-    })
+    // profiles.forEach(profile => {
+    //     profile.addEventListener("click", (e) => {
+    //         window.location.href = "./photographer.html?id="+profile['id'];
+    //     });
+    // })
 };
 
 
