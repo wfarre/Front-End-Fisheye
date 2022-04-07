@@ -10,8 +10,6 @@ const checkMyLikes = () => {
             let picLikeCounter = parseInt(like.querySelector(".like-counter").innerHTML);
             const picId = parseInt(like.parentElement.id);
 
-        
-            console.log(pictureDataArray);
             pictureDataArray.forEach(pic => {
                 if (pic.id === picId) {
                     console.log("picId");
@@ -25,6 +23,7 @@ const checkMyLikes = () => {
                     } else {
                         like.setAttribute("checked", true);
                         like.querySelector(".like-logo").classList.add("byebye-heart");
+
                         picLikeCounter += 1;
 
 

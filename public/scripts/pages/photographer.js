@@ -1,7 +1,3 @@
-let pictureDataArray = [];
-let photographerInfo;
-
-
 /**
  * 
  * getPhotographers():
@@ -24,7 +20,7 @@ async function getPhotographers() {
     const photographers = data.photographers;
     const allMediaData = data.media;
 
-    // get only the relevant data for the media and the photographer 
+    // get only the data related to the right photographer
     const photographerData = photographers.filter((photographer) => {
         if (photographerId === photographer.id) {
             return photographer;
@@ -45,6 +41,7 @@ async function getPhotographers() {
 }
 
 
+let pictureDataArray = [];
 
 /**
  * displayData():
@@ -53,9 +50,7 @@ async function getPhotographers() {
 async function displayData(photographer, mediaData) {
 
 
-    const photographerHeader = document.getElementById("photograph-header");
-
-
+    const photographerHeader = document.getElementById("photographer-header");
 
     const profileModel = new PhotographerFactory3(photographer, "photographer");
     const Template = new PhotographerCard(profileModel);
@@ -82,6 +77,38 @@ async function displayData(photographer, mediaData) {
      getMyTotalLikes();
 };
 
+// async function displayPhotographerData(photographer){
+//     const photographerHeader = document.getElementById("photographer-header");
+
+//     const profileModel = new PhotographerFactory3(photographer, "photographer");
+//     const Template = new PhotographerCard(profileModel);
+//     const photoProfile = Template.loadDom();
+
+//     photographerHeader.appendChild(photoProfile);
+// }
+
+// async function displayPhotographyData(photographer, mediaData){
+//     let index = 0;
+
+//     const profileModel = new PhotographerFactory3(photographer, "photographer");
+
+//     /* we display each picture in the DOM */
+//     mediaData.map(media => {
+//         displayPicture(media, profileModel._name, index);
+//         index++;
+//     });
+
+//      /* Displaty the right slide when we open the slider */
+//      let pictures = document.querySelectorAll(".card > .image-wrapper");
+
+//      /* Display the slider at the right picture */
+//      displaySlideOnClick(pictures);
+ 
+//      /* We update the number of likes for each pictures but also the total number in the footer*/
+//      checkMyLikes();
+//      getMyTotalLikes();
+// }
+
 
 /**
  * init():
@@ -97,18 +124,22 @@ async function init(organizingFunction) {
         return pictureInfo;
     });
 
-    photographerInfo = photographerData[0];
+    const photographerInfo = photographerData[0];
 
     organizingFunction(pictureDataArray);
-    displayData(photographerData[0], pictureDataArray);
+    displayData(photographerInfo, pictureDataArray);
+    // displayPhotographerData(photographerInfo);
+    // displayPhotographyData(photographerInfo, pictureDataArray);
 };
 
 init(organizeByLikes);
 
 
 function displayPicture(media, photographer, index){
+
     const pictureContainer = document.querySelector(".container--picture");
     const carouselContent = document.querySelector(".carousel__content");
+
     /* use the photographer's name for the media's path */
     const PhotoModel = new PhotographerFactory3(({
        "media": media,

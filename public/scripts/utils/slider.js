@@ -2,6 +2,8 @@ const closeBtn = document.querySelector(".close-btn");
 const carousel = document.getElementById("carousel");
 const carouselSection = document.getElementById("carousel-section");
 const body = document.getElementById("body");
+const main = document.getElementById("main");
+const header = document.getElementById("header");
 let currentSlide;
 
 /**
@@ -27,22 +29,32 @@ function displaySlide(n) {
     slides[currentSlide].setAttribute("aria-hidden", "false");
     body.classList.add("no-scroll");
 
+    playVideo();
+}
+
+/**
+ * playVideo():
+ * start the video when the user clicks on it.
+ */
+function playVideo() {
     const videos = document.querySelectorAll("video");
 
     videos.forEach(video => {
         video.addEventListener("click", () => {
             video.play();
         });
-    });  
+    });
 }
+
+
 
 /* event listener when the user press the keyboard */
 window.addEventListener("keyup", (e) => {
     e.preventDefault();
-    if(e.key === "ArrowRight"){
+    if (e.key === "ArrowRight") {
         nextSlide(1);
     }
-    if(e.key === "ArrowLeft"){
+    if (e.key === "ArrowLeft") {
         previousSlide(1);
     }
 });
@@ -70,14 +82,17 @@ function nextSlide(n) {
  * displaySlideOnClick()
  * add eventlistener to every picture. When one picture is clicked, the carousel is opened at the right slide 
  * */
-function displaySlideOnClick(pictureArray){
+function displaySlideOnClick(pictureArray) {
     pictureArray.forEach(picture => {
         picture.addEventListener("click", (e) => {
             const index = parseInt(picture.parentElement.id);
+
             carouselSection.style.display = "block";
             carousel.setAttribute("aria-hidden", "false");
-            body.setAttribute("aria-hidden", "true");
+            hideMainDom();
+
             closeBtn.focus();
+
             displaySlide(index);
         });
     });
@@ -87,13 +102,15 @@ function displaySlideOnClick(pictureArray){
  * closeCarousel():
  * close the carousel and apply the different aria attributes
  */
-function closeCarousel(){
+function closeCarousel() {
     carouselSection.style.display = "none";
-    body.classList.remove("no-scroll");
-    body.setAttribute("aria-hidden", "false");
     carousel.setAttribute("aria-hidden", "true");
+    body.classList.remove("no-scroll");
+    displayMainDom();
 }
 
 closeBtn.addEventListener("click", () => {
     closeCarousel();
 });
+
+

@@ -8,7 +8,7 @@ class PhotographyCard {
 
         const photographyCard = document.createElement("article");
         photographyCard.classList.add("card");
-        photographyCard.setAttribute("aria-label", this._photography.title + ", vu plein écran")
+        // photographyCard.setAttribute("aria-label", this._photography.title + ", vu plein écran")
 
         let mediaToDisplay;
 
@@ -20,23 +20,23 @@ class PhotographyCard {
         if (media === this._photography.video) {
             mediaToDisplay = `
                 <video>
-                    <source src="${media}" aria-label="${this._photography.likes} likes">
+                    <source src="${media}" title="${this._photography.likes} likes">
                 </video>`;
         }
 
         photographyCard.innerHTML = `
-            <a href="#" class="image-wrapper">
+            <a href="#" class="image-wrapper" aria-label="${this._photography.title} , vu plein écran">
                 ${mediaToDisplay}
             </a>
             <div class="card__header" id="${this._photography.id}">
                 <h2 class="card__header__title">
                     ${this._photography.title}
                 </h2>
-                <div checked="false" class="likes" aria-label="likes">
+                <div checked="false" class="likes" >
                     <span class="like-counter">
                         ${this._photography.likes}
                     </span>
-                    <i class="fas fa-heart like-logo like-logo-unchecked" aria-hidden="true">
+                    <i class="fas fa-heart like-logo like-logo-unchecked" aria-hidden="true" aria-label="likes">
                     </i>
                 </div>
             </div>`;
@@ -64,7 +64,7 @@ class PhotographyCard {
 
         if (media === this._photography.video) {
             const videoWrapper = `
-                <video id="player" playsinline controls data-poster="${media}" aria-label="${this._photography.likes} likes">
+                <video id="player" playsinline controls data-poster="${media}" title="${this._photography.likes} likes">
                     <source src="${media}" type="video/mp4" />
                 </video>`;
 
@@ -77,10 +77,10 @@ class PhotographyCard {
                     ${mediaDiv}
                 </div>
             </div>
-            <div class="card__header" id="${this._photography.id}">
-                <h2 class="card__header__title">
+            <div class="card__header">
+                <h1 class="card__header__title">
                     ${this._photography.title}
-                </h2>
+                </h1>
             </div>`;
 
         return (slide);

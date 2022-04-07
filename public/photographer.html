@@ -22,42 +22,16 @@
 
 <body id="body">
 
-  <header class="body-header" role="banner" aria-hidden="false">
+  <header id="header" class="body-header" role="banner" aria-hidden="false">
     <a href="./" aria-label="Fisheye">
       <img src="assets/images/logo.png" class="logo fisheye" alt="Fisheye Home page"/>
     </a>
   </header>
 
-  <main id="main" aria-hidden="false">
+  <main class="main" id="main" aria-hidden="false">
 
-    <section id="photograph-header" class="photograph-header">
-
-      <!-- <div class="photographer-info">
-
-        <div class="photographer-info__name">
-          <h2 id="name" class="info-text info-text--name" aria-label="nom du photographe"></h2>
-        </div>
-
-        <div class="photographer-info__city">
-          <h3 id="city" class="info-text info-text--city" aria-label="localisation du photographe"></h3>
-        </div>
-
-        <div class="photographer-info__tagline">
-          <p id="tagline" class="info-text info-text--tagline" aria-label="slogan du photographe"></p>
-        </div>
-
-      </div>
-
-      <div class="button-wrapper">
-        <button class="contact_button" onclick="displayModal()"
-          aria-label="Contact me">Contactez-moi</button>
-      </div>
-
-      <div class="image-wrapper">
-        <img id="profile-pic" src="" alt="photographie du photographe">
-      </div> -->
-
-    </section> <!-- .photograph-header  -->
+    <section id="photographer-header" class="photographer-header">
+      </section> <!-- .photographer-header  -->
 
     <section class="picture-section" id="picture-section">
 
@@ -67,7 +41,6 @@
         <label id="select__label" class="select__label" for="dropdown" >
                 Trier par
         </label>
-
 
           <div class="selector-wrapper">
             <button id="dropdown-menu" class="dropdown-menu__button" aria-haspopup="true" aria-expanded="false">
@@ -116,7 +89,7 @@
   </aside>
 
 
-  <section id="carousel-section"  class="carousel" >
+  <main id="carousel-section"  class="carousel carousel-section" >
 
     <div class="carousel__bg">
 
@@ -141,9 +114,9 @@
 
     </div>
 
-  </section>
+  </main>
 
-  <section  id="contact-modal-section" class="contact_modal" >
+  <main  id="contact-modal-section" class="contact_modal contact-modal-section" >
 
     <div class="modal-bg"></div>
 
@@ -154,7 +127,7 @@
       </a>
 
       <header id="contact__header" class="contact__header" >
-        <h2 class="contact__header__title">Contactez-moi</h2>
+        <h1 class="contact__header__title">Contactez-moi</h1>
         <h2 class="contact__header__title">Mimi Keel</h2>
       </header>
 
@@ -164,21 +137,21 @@
           <legend class="legend information---legend">Vos coordonnées</legend>
 
           <div class="form-data">
-            <label for="firstName">Prénom</label>
+            <label class="label" for="firstName">Prénom</label>
             <input class="contact-form__input" type="text" name="firstName" id="firstName" data-type="name"
               placeholder="Prénom" aria-invalid="true" required aria-required="true" />
               <span class="error__message" aria-hidden="true">Veuillez entrer un prénom valide.</span>
           </div>
 
           <div class="form-data">
-            <label for="lastName">Nom</label>
+            <label class="label" for="lastName">Nom</label>
             <input class="contact-form__input" type="text" name="lastName" id="lastName" data-type="name"
               placeholder="Nom" aria-invalid="true" required aria-required="true" />
               <span class="error__message" aria-hidden="true">Veuillez entrer un nom valide.</span>
           </div>
 
           <div class="form-data" >
-            <label for="email">Email</label>
+            <label class="label" for="email">Email</label>
             <input class="contact-form__input" type="email" name="email" id="email" data-type="email"
               placeholder="Votre adresse email" aria-labelledby="email" aria-describedby="email-format" required aria-invalid="true"
               aria-required="true" />
@@ -192,7 +165,7 @@
           <legend class="legend message-legend">Votre message</legend>
 
           <div class="form-data">
-            <label for="message">Votre message</label>
+            <label class="label" for="message">Votre message</label>
             <textarea class="contact-form__input contact-form__input--message-content" name="message"
               id="message" data-type="message" placeholder="Votre message ici" required aria-invalid="true"
               aria-required="true"></textarea>
@@ -208,13 +181,13 @@
 
     </div>
 
-  </section>
+  </main>
 
   
 
-  <script src="./scripts/utils/selector.js"></script>
   <script src="./scripts/utils/slider.js"></script>
-  <script src="./scripts/utils/changeFilter.js"></script>
+  <script src="./scripts/utils/selectFilterMenu.js"></script>
+  <script src="./scripts/utils/escBtn.js"></script>
 
   <!-- factories -->
   <script src="./scripts/factories/photographer.js"></script>
@@ -232,11 +205,9 @@
   <script src="/public/scripts/templates/PhotographyCard.js"></script>
 
   <script src="./scripts/utils/contactForm.js"></script>
-  <!-- <script src="./scripts/utils/filters.js"></script> -->
 
-
-
-
+<script src="./scripts/utils/displayDom.js"></script>
+  <script defer src="./scripts/utils/escBtn.js"></script>
   <script defer src="./scripts/utils/likeCounter.js"></script>
 </body>
 

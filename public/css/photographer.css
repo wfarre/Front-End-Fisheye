@@ -42,6 +42,14 @@
     transform: scaleY(1);
   }
 }
+@keyframes rotate-chevron {
+  0% {
+    transform: rotateX(0);
+  }
+  100% {
+    transform: rotateX(180deg);
+  }
+}
 .contact_button {
   width: 170px;
   height: 70px;
@@ -59,18 +67,6 @@
   cursor: pointer;
   background-color: #DB8876;
   color: #000000;
-}
-
-#contact-modal-section {
-  display: none;
-  position: absolute;
-  justify-content: center;
-  align-items: flex-start;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 900;
 }
 
 .modal-bg {
@@ -103,14 +99,15 @@
   }
 }
 
-.modal header {
+.contact__header {
   justify-content: space-between;
   width: 100%;
 }
-
-.modal header h2 {
+.contact__header__title {
+  margin: 0;
   font-size: 3.56em;
   font-weight: normal;
+  text-align: left;
 }
 
 .contact-form {
@@ -120,8 +117,8 @@
   width: 100%;
 }
 
-form label {
-  color: #525252;
+.form .label {
+  color: #000000;
   font-size: 2em;
 }
 
@@ -148,11 +145,6 @@ form label {
   padding-bottom: 18px;
 }
 
-.contact__header__title {
-  text-align: left;
-  margin: 0;
-}
-
 .close-modal-btn-wrapper {
   position: absolute;
   top: 20px;
@@ -163,6 +155,7 @@ form label {
 
 .close-modal-btn {
   position: relative;
+  margin-top: 15px;
   cursor: pointer;
 }
 
@@ -268,14 +261,6 @@ form label {
   animation: rotate-chevron 500ms forwards;
 }
 
-@keyframes rotate-chevron {
-  0% {
-    transform: rotateX(0);
-  }
-  100% {
-    transform: rotateX(180deg);
-  }
-}
 .option.checked::after {
   width: 0;
   height: 0;
@@ -304,7 +289,11 @@ form label {
   cursor: pointer;
 }
 
-/* photoraph header  */
+.chevron-icon {
+  z-index: 99;
+}
+
+/* photorapher header  */
 .photographer-profile {
   display: flex;
   justify-content: space-between;
@@ -471,7 +460,7 @@ video {
   margin-top: 50px;
 }
 
-#carousel-section {
+.carousel-section {
   content: " ";
   display: none;
   position: absolute;
@@ -622,36 +611,29 @@ body {
   font-size: 18px;
 }
 
-#main {
+.main {
   position: relative;
   height: 100%;
   width: 100%;
   margin-bottom: 30px;
 }
 
-.body-header {
-  margin: 0 7%;
-}
-
-.logo {
-  height: 50px;
-}
-
-.no-scroll {
-  overflow: hidden;
-}
-
-.hidden {
-  visibility: hidden;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 /* picture section  */
 .picture-section {
   margin: 0 7%;
   margin-top: 20px;
+}
+
+.contact-modal-section {
+  display: none;
+  position: absolute;
+  justify-content: center;
+  align-items: flex-start;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 900;
 }
 
 .sub-info {
@@ -669,8 +651,22 @@ body {
   z-index: 900;
 }
 
-.chevron-icon {
-  z-index: 99;
+.body-header {
+  margin: 0 7%;
+}
+.body-header .logo {
+  height: 50px;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+.hidden {
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 /*# sourceMappingURL=photographer.css.map */

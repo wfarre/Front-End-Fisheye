@@ -89,16 +89,7 @@
     }
 }
 
-@keyframes rotate-chevron {
-    0%{
-        transform: rotateX(0);
-    }
 
-    100%{
-        transform: rotateX(180deg);
-    }
-    
-}
 .option.checked::after{
     width: 0;
     height: 0;
@@ -130,4 +121,8 @@
     }
 
 }
+
+.chevron-icon{
+    z-index: 99;
+  }
 

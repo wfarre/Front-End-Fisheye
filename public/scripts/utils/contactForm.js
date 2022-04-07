@@ -1,56 +1,37 @@
 const contactModalSection = document.getElementById("contact-modal-section");
 const modal = document.getElementById("contact_modal");
-const main = document.getElementById("main");
+// const main = document.getElementById("main");
 const closeContactBtn = document.getElementById("close-modal-btn-wrapper");
 
 
+/**
+ * displayModal():
+ * display the contact form modal
+ **/
 function displayModal() {
     main.setAttribute("aria-hidden", true);
-    modal.setAttribute("aria-hiddent", false);
+    modal.setAttribute("aria-hidden", "false");
+    hideMainDom();
     contactModalSection.style.display = "flex";
     closeContactBtn.focus();
-    console.log(closeBtn);
 }
 
+
+/**
+ * closeModal():
+ * close the contact form modal
+ **/
 function closeModal() {
     modal.setAttribute("aria-hidden", true);
-    main.setAttribute("aria-hiddent", false);
+    displayMainDom();
     contactModalSection.style.display = "none";
 }
-
-const inputs = document.querySelectorAll(".contact-form__input");
-
-
-
-/* add event listener to our different inputs */
-inputs.forEach(input => {
-    const formDataToTarget = input.parentElement;
-
-    input.addEventListener("input", () => {
-        if (formDataToTarget.classList.contains("error") || formDataToTarget.classList.contains("valid")) {
-            if (checkIfInputIsValid(input, input.getAttribute("data-type"))) {
-                removeDanger(input);
-            } else {
-                displayDanger(input);
-            }
-        }
-    });
-
-    input.addEventListener("blur", () => {
-        if (checkIfInputIsValid(input, input.getAttribute("data-type"))) {
-            removeDanger(input);
-        } else {
-            displayDanger(input);
-        }
-    });
-})
-
 
 /**
  * validateForm() 
  * validate the form when the form is submitted 
  * */
-function validateForm(event) {
+ function validateForm(event) {
     event.preventDefault();
 
     let errorArray = [];
@@ -77,6 +58,36 @@ function validateForm(event) {
         console.log(message);
     }
 }
+
+const inputs = document.querySelectorAll(".contact-form__input");
+
+
+/* add event listener to our different inputs */
+inputs.forEach(input => {
+    const formDataToTarget = input.parentElement;
+
+    input.addEventListener("input", () => {
+        if (formDataToTarget.classList.contains("error") || formDataToTarget.classList.contains("valid")) {
+            if (checkIfInputIsValid(input, input.getAttribute("data-type"))) {
+                removeDanger(input);
+            } else {
+                displayDanger(input);
+            }
+        }
+    });
+
+    input.addEventListener("blur", () => {
+        if (checkIfInputIsValid(input, input.getAttribute("data-type"))) {
+            removeDanger(input);
+        } else {
+            displayDanger(input);
+        }
+    });
+});
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////
 
 /**
  * checkIfEmailIsValid()
@@ -147,13 +158,11 @@ function removeDanger(input) {
     const formDataToTarget = input.parentElement;
     const errorMessage = formDataToTarget.querySelector(".error__message");
 
-
     formDataToTarget.classList.remove("error");
     formDataToTarget.classList.add("valid");
-    input.setAttribute("aria-invalid", "false");
     errorMessage.setAttribute("aria-hidden", "true");
 
-
+    input.setAttribute("aria-invalid", "false");
 }
 
 /**
@@ -166,18 +175,9 @@ function displayDanger(input) {
 
     formDataToTarget.classList.add("error");
     formDataToTarget.classList.remove("valid");
-    input.setAttribute("aria-invalid", "true");
     errorMessage.setAttribute("aria-hidden", "false");
+    input.setAttribute("aria-invalid", "true");
 
 }
 
 
-// closeModal when escape is pressed 
-document.addEventListener("keydown", event => {
-    const pressedKey = event.key;
-
-    if (pressedKey === "Escape") {
-        closeModal();
-        closeCarousel();
-    }
-})

@@ -15,10 +15,13 @@ async function getPhotographers() {
     };
 }
 
-let nomPhoto = "";
 
-// let photographerName = "";
 
+/**
+ * displayData():
+ * @param {*} data
+ * display the data of the photographers 
+ */
 async function displayData(data) {
     const photographersSection = document.querySelector(".photographer_section");
 
@@ -30,20 +33,15 @@ async function displayData(data) {
     })
 };
 
+/** init():
+ * triggers the function displayData() to display the photographers' data
+ */
 async function init() {
     // Récupère les datas des photographes
     const {
         photographersData
     } = await getPhotographers();
     displayData(photographersData);
-
-    // const profiles = document.querySelectorAll(".card");
-
-    // profiles.forEach(profile => {
-    //     profile.addEventListener("click", (e) => {
-    //         window.location.href = "./photographer.html?id="+profile['id'];
-    //     });
-    // })
 };
 
 

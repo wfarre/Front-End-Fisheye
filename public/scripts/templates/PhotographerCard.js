@@ -41,11 +41,11 @@ class PhotographerCard{
             <div class="photographer-info">
 
                 <div class="photographer-info__name">
-                    <h2 id="name" class="info-text info-text--name">${this._photographer.name}</h2>
+                    <h1 id="name" class="info-text info-text--name">${this._photographer.name}</h1>
                 </div>
 
                 <div class="photographer-info__city">
-                    <h3 id="city" class="info-text info-text--city">${this._photographer.city}</h3>
+                    <h2 id="city" class="info-text info-text--city">${this._photographer.city}</h2>
                 </div>
 
                 <div class="photographer-info__tagline">
