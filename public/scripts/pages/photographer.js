@@ -6,13 +6,14 @@
  */
 async function getPhotographers() {
     // // Penser à remplacer par les données récupérées dans le json
-    let data = await fetch('../public/data/photographers.json').then(response => {
-        return response.json();
-    }).then(data => {
-        return data;
-    }).catch(err => {
-        console.log(err);
-    });
+    let data = await fetch('../data/photographers.json')
+        .then(response => {
+            return response.json();
+        }).then(data => {
+            return data;
+        }).catch(err => {
+            console.log(err);
+        });
 
     // get the id of the photographer to display the right information 
     const photographerId = parseInt(window.location.search.slice(4));
@@ -42,6 +43,7 @@ async function getPhotographers() {
 
 
 let pictureDataArray = [];
+let photographerInfo;
 
 /**
  * displayData():
@@ -66,15 +68,15 @@ async function displayData(photographer, mediaData) {
         index++;
     });
 
-     /* Displaty the right slide when we open the slider */
-     let pictures = document.querySelectorAll(".card > .image-wrapper");
+    /* Displaty the right slide when we open the slider */
+    let pictures = document.querySelectorAll(".card > .image-wrapper");
 
-     /* Display the slider at the right picture */
-     displaySlideOnClick(pictures);
- 
-     /* We update the number of likes for each pictures but also the total number in the footer*/
-     checkMyLikes();
-     getMyTotalLikes();
+    /* Display the slider at the right picture */
+    displaySlideOnClick(pictures);
+
+    /* We update the number of likes for each pictures but also the total number in the footer*/
+    checkMyLikes();
+    getMyTotalLikes();
 };
 
 // async function displayPhotographerData(photographer){
@@ -103,7 +105,7 @@ async function displayData(photographer, mediaData) {
 
 //      /* Display the slider at the right picture */
 //      displaySlideOnClick(pictures);
- 
+
 //      /* We update the number of likes for each pictures but also the total number in the footer*/
 //      checkMyLikes();
 //      getMyTotalLikes();
@@ -117,14 +119,15 @@ async function displayData(photographer, mediaData) {
 async function init(organizingFunction) {
     // Récupère les datas des photographes
     const {
-        photographerData, mediaData
+        photographerData,
+        mediaData
     } = await getPhotographers();
 
     pictureDataArray = mediaData.map(pictureInfo => {
         return pictureInfo;
     });
 
-    const photographerInfo = photographerData[0];
+    photographerInfo = photographerData[0];
 
     organizingFunction(pictureDataArray);
     displayData(photographerInfo, pictureDataArray);
@@ -135,24 +138,24 @@ async function init(organizingFunction) {
 init(organizeByLikes);
 
 
-function displayPicture(media, photographer, index){
+function displayPicture(media, photographer, index) {
 
     const pictureContainer = document.querySelector(".container--picture");
     const carouselContent = document.querySelector(".carousel__content");
 
     /* use the photographer's name for the media's path */
     const PhotoModel = new PhotographerFactory3(({
-       "media": media,
-       "photographerName": photographer
-   }), "media");
+        "media": media,
+        "photographerName": photographer
+    }), "media");
 
-   const PhotoTemplate = new PhotographyCard(PhotoModel);
-   const card = PhotoTemplate.createPhotographyCard();
-   const slide = PhotoTemplate.createSlide();
+    const PhotoTemplate = new PhotographyCard(PhotoModel);
+    const card = PhotoTemplate.createPhotographyCard();
+    const slide = PhotoTemplate.createSlide();
 
-   // give an index as an id to every card to be able to display the carousel at the right slide 
-   card.setAttribute("id", index);
+    // give an index as an id to every card to be able to display the carousel at the right slide 
+    card.setAttribute("id", index);
 
-   pictureContainer.appendChild(card);
-   carouselContent.appendChild(slide);
+    pictureContainer.appendChild(card);
+    carouselContent.appendChild(slide);
 }

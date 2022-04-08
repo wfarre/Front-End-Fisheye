@@ -29,7 +29,7 @@ class PhotographyCard {
                 ${mediaToDisplay}
             </a>
             <div class="card__header" id="${this._photography.id}">
-                <h2 class="card__header__title">
+                <h2 class="card__header__title" lang="en">
                     ${this._photography.title}
                 </h2>
                 <div checked="false" class="likes" >
@@ -78,7 +78,7 @@ class PhotographyCard {
                 </div>
             </div>
             <div class="card__header">
-                <h1 class="card__header__title">
+                <h1 class="card__header__title" lang="en">
                     ${this._photography.title}
                 </h1>
             </div>`;

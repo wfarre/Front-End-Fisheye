@@ -9,9 +9,9 @@ class PhotographerCard{
         $wrapper.setAttribute("href","./photographer.html?id="+this._photographer.id)
 
         const photographerCard = `
-            <article role="article" id="${this._photographer.id}" aria-label="lien vers la page de Mimi Keel" class="card">
+            <article role="article" id="${this._photographer.id}" aria-label="lien vers la page de ${this._photographer.name}" class="card">
                     <img src="${this._photographer.portrait}" alt="" class="pic-profile">
-                    <h2 aria-label="nom du phtographer" class="card__header">
+                    <h2 class="card__header">
                         ${this._photographer.name}
                     </h2>
                 <h3 class="city">
@@ -36,6 +36,7 @@ class PhotographerCard{
         $wrapper.classList.add("photographer-profile");
 
         document.getElementById("price").textContent = this._photographer.price+"€/jour";
+        document.getElementById("contact-photographer-name").innerHTML = this._photographer.name;
 
         const photographerProfile = `
             <div class="photographer-info">

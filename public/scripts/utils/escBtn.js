@@ -1,3 +1,5 @@
+
+
 // it triggers closeModal when escape is pressed 
 document.addEventListener("keydown", event => {
     const pressedKey = event.key;
@@ -7,3 +9,7 @@ document.addEventListener("keydown", event => {
         closeCarousel();
     }
 });
+
+
+
+// eventManager.js 
