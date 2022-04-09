@@ -78,9 +78,9 @@ class PhotographyCard {
                 </div>
             </div>
             <div class="card__header">
-                <h1 class="card__header__title" lang="en">
+                <h2 class="card__header__title" lang="en">
                     ${this._photography.title}
-                </h1>
+                </h2>
             </div>`;
 
         return (slide);
