@@ -1,4 +1,3 @@
-import data from "../data/photographersData.js";
 /**
  * 
  * getPhotographers():
