@@ -1,3 +1,4 @@
+import data from "../data/photographersData.js";
 /**
  * 
  * getPhotographers():
@@ -6,7 +7,7 @@
  */
 async function getPhotographers() {
     // // Penser à remplacer par les données récupérées dans le json
-    let data = await fetch('../public/data/photographers.json' || '../data/photographers.json' )
+    let data = await fetch('../public/data/photographers.json' || '../data/photographersData.js' )
     .then(response => {
         return response.json();
     }).then(data => {
