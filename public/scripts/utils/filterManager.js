@@ -4,24 +4,25 @@
  * Then, it orders the array with all the picture data according to the filter.
  * To finish, it displays the data.
  * */
- const changeFilter = () => {
+const changeFilter = () => {
     /* if user changes the filter, it will remove the cards from the previous selection */
     removeAllCardsAllSlides();
 
     const checkedFilter = document.querySelector(".checked").id;
-    
+
     switch (checkedFilter) {
         case "popularity":
             organizeByLikes(pictureDataArray);
-            displayData(photographerInfo, pictureDataArray);
+            displayPhotographyData(photographerInfo, pictureDataArray);
+
             break;
         case "date":
             organizeByDate(pictureDataArray);
-            displayData(photographerInfo, pictureDataArray);
+            displayPhotographyData(photographerInfo, pictureDataArray);
             break;
         case "title":
             organizeByTitles(pictureDataArray);
-            displayData(photographerInfo, pictureDataArray);
+            displayPhotographyData(photographerInfo, pictureDataArray);
             break;
         default:
             checkedFilter
@@ -71,8 +72,6 @@ function removeAllCardsAllSlides() {
     let slides = document.querySelectorAll(".slide");
     const photographerHeader = document.querySelector(".photographer-profile");
 
-    photographerHeader.remove();
-    
     cards.forEach(card => {
         card.remove();
     });
@@ -123,4 +122,3 @@ const filterSelector = document.getElementById("filter");
 filterSelector.addEventListener("click", () => {
     changeFilter();
 })
-

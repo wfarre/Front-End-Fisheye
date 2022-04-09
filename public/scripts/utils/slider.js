@@ -46,19 +46,6 @@ function playVideo() {
     });
 }
 
-
-
-/* event listener when the user press the keyboard */
-window.addEventListener("keyup", (e) => {
-    e.preventDefault();
-    if (e.key === "ArrowRight") {
-        nextSlide(1);
-    }
-    if (e.key === "ArrowLeft") {
-        previousSlide(1);
-    }
-});
-
 /**
  * previousSlide()
  * display the previous slide 

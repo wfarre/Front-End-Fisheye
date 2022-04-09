@@ -14,28 +14,31 @@
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
 
     <!-- stylesheet  -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/photographer.css" rel="stylesheet" type="text/css" />
 
   </head>
 
-  <body>
+  <body class="body body__home">
 
     <header class="header" role="banner">
         <img src="assets/images/logo.png" class="logo"  alt="Home de Fisheye" />
-        <h1 class="header__title" aria-label="titre de la page" >Nos photographes</h1>
+        <h1 class="page-title" aria-label="titre de la page" >Nos photographes</h1>
     </header>
 
-    <main id="main">
+    <main id="main" class="main__home">
         <div class="photographer_section"></div>
     </main>
 
     <!-- factories -->
     <script src="./scripts/factories/photographer.js" async></script>
+
      <!-- models -->
     <script src="./scripts/models/Photographer.js" async></script>
+
     <!-- templates -->
     <script src="./scripts/templates/PhotographerCard.js" async></script>
 
+    <!-- pages -->
     <script src="./scripts/pages/index.js" async></script>
 
   </body>

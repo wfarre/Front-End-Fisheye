@@ -45,12 +45,10 @@ let pictureDataArray = [];
 let photographerInfo;
 
 /**
- * displayData():
- * the function displays all the data in the DOM
- */
-async function displayData(photographer, mediaData) {
-
-
+ * displayPhotographerData():
+ * the function displays the photographer's data in the DOM
+//  */
+async function displayPhotographerData(photographer){
     const photographerHeader = document.getElementById("photographer-header");
 
     const profileModel = new PhotographerFactory3(photographer, "photographer");
@@ -58,8 +56,16 @@ async function displayData(photographer, mediaData) {
     const photoProfile = Template.loadDom();
 
     photographerHeader.appendChild(photoProfile);
+}
 
+/**
+ * displayPhotographyData():
+ * the function displays the photographer's photography in the DOM
+//  */
+async function displayPhotographyData(photographer, mediaData){
     let index = 0;
+
+    const profileModel = new PhotographerFactory3(photographer, "photographer");
 
     /* we display each picture in the DOM */
     mediaData.map(media => {
@@ -76,39 +82,7 @@ async function displayData(photographer, mediaData) {
      /* We update the number of likes for each pictures but also the total number in the footer*/
      checkMyLikes();
      getMyTotalLikes();
-};
-
-// async function displayPhotographerData(photographer){
-//     const photographerHeader = document.getElementById("photographer-header");
-
-//     const profileModel = new PhotographerFactory3(photographer, "photographer");
-//     const Template = new PhotographerCard(profileModel);
-//     const photoProfile = Template.loadDom();
-
-//     photographerHeader.appendChild(photoProfile);
-// }
-
-// async function displayPhotographyData(photographer, mediaData){
-//     let index = 0;
-
-//     const profileModel = new PhotographerFactory3(photographer, "photographer");
-
-//     /* we display each picture in the DOM */
-//     mediaData.map(media => {
-//         displayPicture(media, profileModel._name, index);
-//         index++;
-//     });
-
-//      /* Displaty the right slide when we open the slider */
-//      let pictures = document.querySelectorAll(".card > .image-wrapper");
-
-//      /* Display the slider at the right picture */
-//      displaySlideOnClick(pictures);
- 
-//      /* We update the number of likes for each pictures but also the total number in the footer*/
-//      checkMyLikes();
-//      getMyTotalLikes();
-// }
+}
 
 
 /**
@@ -128,9 +102,10 @@ async function init(organizingFunction) {
     photographerInfo = photographerData[0];
 
     organizingFunction(pictureDataArray);
-    displayData(photographerInfo, pictureDataArray);
-    // displayPhotographerData(photographerInfo);
-    // displayPhotographyData(photographerInfo, pictureDataArray);
+
+    // displayData(photographerInfo, pictureDataArray);
+    displayPhotographerData(photographerInfo);
+    displayPhotographyData(photographerInfo, pictureDataArray);
 };
 
 init(organizeByLikes);

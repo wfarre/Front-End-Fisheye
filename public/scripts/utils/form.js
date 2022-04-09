@@ -1,8 +1,6 @@
 const contactModalSection = document.getElementById("contact-modal-section");
 const modal = document.getElementById("contact_modal");
-// const main = document.getElementById("main");
 const closeContactBtn = document.getElementById("close-modal-btn-wrapper");
-
 
 /**
  * displayModal():
