@@ -130,7 +130,7 @@
 }
 
 .contact-form__input {
-  width: calc(100% - 36px);
+  width: calc(100% - 2 * 18px);
   height: 68px;
   border: none;
   border-radius: 5px;
@@ -655,6 +655,7 @@ body {
   margin: 0 7%;
 }
 .body-header .logo {
+  width: fit-content;
   height: 50px;
 }
 
