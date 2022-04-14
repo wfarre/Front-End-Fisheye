@@ -27,8 +27,8 @@
 <body id="body">
 
   <header id="header" class="body-header" role="banner" aria-hidden="false">
-    <a href="./" aria-label="Fisheye">
-      <img src="assets/images/logo.png" class="logo fisheye" alt="Fisheye Home page" />
+    <a href="./" lang="en-UK" aria-label="Fisheye">
+      <img src="assets/images/logo.png" class="logo fisheye" alt="Fisheye page d'accueil" />
     </a>
   </header>
 
@@ -55,15 +55,15 @@
           <ul class="selector" id="filter" role="listbox" aria-controls="dropdown-menu" aria-labelledby="select__label"
             tabindex="-1">
             <li role="option" class="option checked" id="popularity" aria-label="Trier par popularité">
-              <span>Popularité</span>
+              <a href="#" class="option__txt">Popularité</a>
               <i class="fas fa-chevron-up chevron-icon"></i>
             </li>
             <li role="option" class="option" id="date" aria-label="Trier par date">
-              <span>Date</span>
+              <a href="#" class="option__txt">Date</a>
               <i class="fas fa-chevron-up chevron-icon"></i>
             </li>
             <li role="option" class="option" id="title" aria-label="Trier par titre">
-              <span>Titre</span>
+              <a href="#" class="option__txt">Titre</a>
               <i class="fas fa-chevron-up chevron-icon"></i>
             </li>
           </ul>
@@ -77,20 +77,23 @@
 
     </section> <!-- #picture-section -->
 
+
+    <aside class="sub-info footer">
+
+      <div class="sub-info__likes">
+        <span class="like-quantity"></span>
+        <i class="fas fa-heart"></i>
+      </div>
+  
+      <div class="sub-info__price">
+        <span id="price" class="price"></span>
+      </div>
+  
+    </aside>
+
   </main>
 
-  <aside class="sub-info footer">
 
-    <div class="sub-info__likes">
-      <span class="like-quantity"></span>
-      <i class="fas fa-heart"></i>
-    </div>
-
-    <div class="sub-info__price">
-      <span id="price" class="price"></span>
-    </div>
-
-  </aside>
 
 
   <div id="carousel-section" class="carousel carousel-section">
@@ -118,7 +121,7 @@
 
     </div>
 
-  </div>
+  </div> <!-- #carousel -->
 
   <div id="contact-modal-section" class="contact_modal contact-modal-section">
 
@@ -133,7 +136,7 @@
 
       <header id="contact__header" class="contact__header">
         <h2 class="contact__header__title">Contactez-moi</h2>
-        <h2 id="contact-photographer-name" class="contact__header__title">Mimi Keel</h2>
+        <h2 id="contact-photographer-name" class="contact__header__title"></h2>
       </header>
 
       <form action="photographer.html" method="get" class="form contact-form">
@@ -146,14 +149,14 @@
             <input class="contact-form__input" type="text" name="firstName" id="firstName" data-type="name"
               placeholder="Prénom" aria-invalid="true" required aria-required="true" />
             <span class="error__message" aria-hidden="true">Veuillez entrer un prénom valide.</span>
-          </div>
+          </div><!-- .form-data for prénom -->
 
           <div class="form-data">
             <label class="label" for="lastName">Nom</label>
             <input class="contact-form__input" type="text" name="lastName" id="lastName" data-type="name"
               placeholder="Nom" aria-invalid="true" required aria-required="true" />
             <span class="error__message" aria-hidden="true">Veuillez entrer un nom valide.</span>
-          </div>
+          </div><!-- .form-data for nom -->
 
           <div class="form-data">
             <label class="label" for="email">Email</label>
@@ -162,9 +165,9 @@
               aria-invalid="true" aria-required="true" />
             <span class="error__message" aria-hidden="true">Veuillez entrer un email valide.</span>
             <span id="email-format" class="hidden">adresse@email.com</span>
-          </div>
+          </div><!-- .form-data for email -->
 
-        </fieldset>
+        </fieldset> <!-- .information--fieldset -->
 
         <fieldset class="fieldset message--fieldset">
           <legend class="legend message-legend">Votre message</legend>
@@ -177,16 +180,16 @@
             <span class="error__message" aria-hidden="true">Votre message doit comporter au moins 200 caractères.</span>
           </div>
 
-        </fieldset>
+        </fieldset><!-- .message--fieldset -->
 
 
         <button type="submit" class="contact_button" onclick="validateForm(event)">Envoyer</button>
 
-      </form>
+      </form> <!-- contact-form -->
 
-    </div>
+    </div> <!-- modal -->
 
-  </div>
+  </div><!-- #contact-modal-section -->
 
 
   <!-- utils -->

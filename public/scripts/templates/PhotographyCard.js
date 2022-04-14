@@ -78,7 +78,7 @@ class PhotographyCard {
                 </div>
             </div>
             <div class="card__header">
-                <h2 class="card__header__title" lang="en">
+                <h2 class="card__header__title" lang="en-UK">
                     ${this._photography.title}
                 </h2>
             </div>`;

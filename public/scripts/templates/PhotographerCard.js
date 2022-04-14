@@ -57,7 +57,7 @@ class PhotographerCard{
 
             <div class="button-wrapper">
                 <button class="contact_button" onclick="displayModal()"
-                aria-label="Contact me">Contactez-moi</button>
+                aria-label="Contactez moi">Contactez-moi</button>
             </div>
 
             <div class="image-wrapper">

@@ -58,6 +58,7 @@
                 object-fit: cover;
                 border-radius: 100%;
                 overflow: hidden;
+                transition: transform 500ms;
               }
 
               .city {
@@ -89,14 +90,25 @@
                 }
               }
           }
-          &:hover {
-            cursor: pointer;
-          }
+          
       }
 
       .photographer-card-wrapper{
         text-decoration: none;
         color: black;
+        &:focus {
+          cursor: pointer;
+          img{
+            transform: scale(1.2);
+          }
+        }
+        &:hover {
+          cursor: pointer;
+          img{
+            transform: scale(1.2);
+          }
+        }
       }
+      
 
 }

@@ -237,6 +237,10 @@
 .option .chevron-icon {
   display: none;
 }
+.option__txt {
+  text-decoration: none;
+  color: inherit;
+}
 
 .option:hover {
   cursor: pointer;
@@ -381,16 +385,22 @@
   }
 }
 
+.card__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #901C1C;
+}
+.card__header__title {
+  margin: 10px 0;
+  font-size: 1.3em;
+  font-weight: 400;
+}
 .card .image-wrapper {
   width: 100%;
   height: 300px;
   border-radius: 0;
 }
-
-.card .image-wrapper:hover {
-  cursor: pointer;
-}
-
 .card .image-wrapper img {
   position: absolute;
   top: 0;
@@ -399,18 +409,33 @@
   height: 100%;
   object-fit: cover;
 }
-
-.card__header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #901C1C;
+.card .image-wrapper:hover {
+  position: relative;
+  cursor: pointer;
 }
-
-.card__header__title {
-  margin: 10px 0;
-  font-size: 1.3em;
-  font-weight: 400;
+.card .image-wrapper:hover:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  opacity: 0.2;
+}
+.card .image-wrapper:focus {
+  position: relative;
+  cursor: pointer;
+}
+.card .image-wrapper:focus:after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  opacity: 0.2;
 }
 
 .likes {
@@ -595,7 +620,7 @@ video {
 }
 
 .valid .contact-form__input {
-  background-color: #baf8f8;
+  background-color: #baf8db;
 }
 .valid .error__message {
   display: none;
@@ -711,6 +736,7 @@ body {
   object-fit: cover;
   border-radius: 100%;
   overflow: hidden;
+  transition: transform 500ms;
 }
 .body__home .photographer_section .card .city {
   margin: 0;
@@ -737,12 +763,21 @@ body {
 .body__home .photographer_section .card__header:hover {
   cursor: pointer;
 }
-.body__home .photographer_section:hover {
-  cursor: pointer;
-}
 .body__home .photographer-card-wrapper {
   text-decoration: none;
   color: black;
+}
+.body__home .photographer-card-wrapper:focus {
+  cursor: pointer;
+}
+.body__home .photographer-card-wrapper:focus img {
+  transform: scale(1.2);
+}
+.body__home .photographer-card-wrapper:hover {
+  cursor: pointer;
+}
+.body__home .photographer-card-wrapper:hover img {
+  transform: scale(1.2);
 }
 
 .no-scroll {
