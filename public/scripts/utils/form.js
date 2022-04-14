@@ -29,11 +29,11 @@ function closeModal() {
  * validateForm() 
  * validate the form when the form is submitted 
  * */
- function validateForm(event) {
+function validateForm(event) {
     event.preventDefault();
 
     let errorArray = [];
-    
+
     /* validate the contact form when user submit the contact form */
     inputs.forEach(input => {
 
@@ -42,10 +42,10 @@ function closeModal() {
         } else {
             displayDanger(input);
             errorArray.push("error");
-        };
+        }
     })
 
-    if(errorArray.length === 0){
+    if (errorArray.length === 0) {
         const myEmailObject = {
             "name": inputs[0].value,
             "familyName": inputs[1].value,
@@ -177,5 +177,3 @@ function displayDanger(input) {
     input.setAttribute("aria-invalid", "true");
 
 }
-
-

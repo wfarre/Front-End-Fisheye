@@ -71,7 +71,7 @@ function nextSlide(n) {
  * */
 function displaySlideOnClick(pictureArray) {
     pictureArray.forEach(picture => {
-        picture.addEventListener("click", (e) => {
+        picture.addEventListener("click", () => {
             const index = parseInt(picture.parentElement.id);
 
             carouselSection.style.display = "block";
@@ -99,5 +99,3 @@ function closeCarousel() {
 closeBtn.addEventListener("click", () => {
     closeCarousel();
 });
-
-

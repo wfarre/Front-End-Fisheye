@@ -40,7 +40,6 @@ async function getPhotographers() {
     };
 }
 
-
 let pictureDataArray = [];
 let photographerInfo;
 
@@ -48,7 +47,7 @@ let photographerInfo;
  * displayPhotographerData():
  * the function displays the photographer's data in the DOM
 //  */
-async function displayPhotographerData(photographer){
+async function displayPhotographerData(photographer) {
     const photographerHeader = document.getElementById("photographer-header");
 
     const profileModel = new PhotographerFactory3(photographer, "photographer");
@@ -62,7 +61,7 @@ async function displayPhotographerData(photographer){
  * displayPhotographyData():
  * the function displays the photographer's photography in the DOM
 //  */
-async function displayPhotographyData(photographer, mediaData){
+async function displayPhotographyData(photographer, mediaData) {
     let index = 0;
 
     const profileModel = new PhotographerFactory3(photographer, "photographer");
@@ -73,17 +72,16 @@ async function displayPhotographyData(photographer, mediaData){
         index++;
     });
 
-     /* Displaty the right slide when we open the slider */
-     let pictures = document.querySelectorAll(".card > .image-wrapper");
+    /* Displaty the right slide when we open the slider */
+    let pictures = document.querySelectorAll(".card > .image-wrapper");
 
-     /* Display the slider at the right picture */
-     displaySlideOnClick(pictures);
- 
-     /* We update the number of likes for each pictures but also the total number in the footer*/
-     checkMyLikes();
-     getMyTotalLikes();
+    /* Display the slider at the right picture */
+    displaySlideOnClick(pictures);
+
+    /* We update the number of likes for each pictures but also the total number in the footer*/
+    checkMyLikes();
+    getMyTotalLikes();
 }
-
 
 /**
  * init():
@@ -92,7 +90,8 @@ async function displayPhotographyData(photographer, mediaData){
 async function init(organizingFunction) {
     // Récupère les datas des photographes
     const {
-        photographerData, mediaData
+        photographerData,
+        mediaData
     } = await getPhotographers();
 
     pictureDataArray = mediaData.map(pictureInfo => {
@@ -111,24 +110,24 @@ async function init(organizingFunction) {
 init(organizeByLikes);
 
 
-function displayPicture(media, photographer, index){
+function displayPicture(media, photographer, index) {
 
     const pictureContainer = document.querySelector(".container--picture");
     const carouselContent = document.querySelector(".carousel__content");
 
     /* use the photographer's name for the media's path */
     const PhotoModel = new PhotographerFactory3(({
-       "media": media,
-       "photographerName": photographer
-   }), "media");
+        "media": media,
+        "photographerName": photographer
+    }), "media");
 
-   const PhotoTemplate = new PhotographyCard(PhotoModel);
-   const card = PhotoTemplate.createPhotographyCard();
-   const slide = PhotoTemplate.createSlide();
+    const PhotoTemplate = new PhotographyCard(PhotoModel);
+    const card = PhotoTemplate.createPhotographyCard();
+    const slide = PhotoTemplate.createSlide();
 
-   // give an index as an id to every card to be able to display the carousel at the right slide 
-   card.setAttribute("id", index);
+    // give an index as an id to every card to be able to display the carousel at the right slide 
+    card.setAttribute("id", index);
 
-   pictureContainer.appendChild(card);
-   carouselContent.appendChild(slide);
+    pictureContainer.appendChild(card);
+    carouselContent.appendChild(slide);
 }

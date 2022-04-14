@@ -46,7 +46,7 @@ const checkMyLikes = () => {
  * */
 const getMyTotalLikes = () => {
     totalLikes = 0;
-    pictureDataArray.forEach(pic =>{
+    pictureDataArray.forEach(pic => {
         totalLikes += pic.likes;
     })
 

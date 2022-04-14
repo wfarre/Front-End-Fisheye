@@ -12,7 +12,7 @@ class PhotographyCard {
 
         let mediaToDisplay;
 
-        if (media === this._photography.image){
+        if (media === this._photography.image) {
             mediaToDisplay = `
                 <img src="${media}" alt="${this._photography.likes} likes"/>`;
         }
@@ -46,9 +46,9 @@ class PhotographyCard {
     }
 
 
-    createSlide(){
+    createSlide() {
         const media = this._photography.media;
-        
+
         const slide = document.createElement("div");
         slide.classList.add("slide");
         slide.setAttribute("aria-hidden", "true");
@@ -60,7 +60,7 @@ class PhotographyCard {
                 <img src="${media}" alt="${this._photography.likes} likes" />`;
 
             mediaDiv = photoWrapper;
-        } 
+        }
 
         if (media === this._photography.video) {
             const videoWrapper = `

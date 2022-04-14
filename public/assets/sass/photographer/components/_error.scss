@@ -1,33 +1,35 @@
-.error__message{
+.error__message {
+  display: none;
+  position: absolute;
+  bottom: 0.4em;
+  right: 0.5em;
+  font-size: 0.8em;
+  color: #e54858;
+  line-height: 0.3;
+  transition: 0.3s;
+}
+
+.error {
+  position: relative;
+
+  .contact-form__input {
+    background-color: #f8dadd;
+    animation: buzzing 100ms 3;
+    transition: 1s background-color;
+  }
+
+  .error__message {
+    display: inline-block;
+  }
+}
+
+.valid {
+  .contact-form__input {
+    background-color: rgb(186, 248, 219);
+  }
+
+  .error__message {
     display: none;
-    position: absolute;
-    bottom: 0.4em;
-    right: 0;
-    font-size: 0.8em;
-    color: #e54858;
-    line-height: 0.3;
-    transition: 0.3s;
   }
 
-  .error{
-    position: relative;
-    .contact-form__input{
-      background-color: #f8dadd ;
-      animation: buzzing 100ms 3;
-      transition: 1s background-color;
-    }
-    .error__message{
-      display: inline-block;
-    }
-  }
-
-  .valid{
-    .contact-form__input{
-      background-color: rgb(186, 248, 219);
-    }
-    .error__message{
-      display: none;
-    }
-
-  }
-
+}

@@ -1,12 +1,12 @@
-class PhotographerCard{
-    constructor(photographer){
+class PhotographerCard {
+    constructor(photographer) {
         this._photographer = photographer
     }
 
-    createPhotographerCard(){
+    createPhotographerCard() {
         const $wrapper = document.createElement("a");
         $wrapper.classList.add("photographer-card-wrapper");
-        $wrapper.setAttribute("href","./photographer.html?id="+this._photographer.id)
+        $wrapper.setAttribute("href", "./photographer.html?id=" + this._photographer.id)
 
         const photographerCard = `
             <article role="article" id="${this._photographer.id}" aria-label="lien vers la page de ${this._photographer.name}" class="card">
@@ -35,7 +35,7 @@ class PhotographerCard{
         const $wrapper = document.createElement("div");
         $wrapper.classList.add("photographer-profile");
 
-        document.getElementById("price").textContent = this._photographer.price+"€/jour";
+        document.getElementById("price").textContent = this._photographer.price + "€/jour";
         document.getElementById("contact-photographer-name").innerHTML = this._photographer.name;
 
         const photographerProfile = `
@@ -64,17 +64,8 @@ class PhotographerCard{
                 <img id="profile-pic" src="${picture}" alt="">
             </div>`;
 
-            $wrapper.innerHTML = photographerProfile;
+        $wrapper.innerHTML = photographerProfile;
 
-            return($wrapper);
-
-
-
-
-        document.getElementById("name").textContent = this._photographer.name;
-        document.getElementById("city").textContent = this._photographer.city;
-        document.getElementById("tagline").textContent = this._photographer.tagline;
-        document.getElementById("profile-pic").setAttribute("src", picture); 
-        document.getElementById("price").textContent = this._photographer.price+"€/jour";
+        return ($wrapper);
     }
-} 
+}

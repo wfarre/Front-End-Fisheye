@@ -600,7 +600,7 @@ video {
   display: none;
   position: absolute;
   bottom: 0.4em;
-  right: 0;
+  right: 0.5em;
   font-size: 0.8em;
   color: #e54858;
   line-height: 0.3;

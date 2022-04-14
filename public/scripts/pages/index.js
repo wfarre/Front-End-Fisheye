@@ -1,4 +1,3 @@
-
 async function getPhotographers() {
     // // Penser à remplacer par les données récupérées dans le json
     let data = await fetch('../data/photographers.json').then(response => {
@@ -20,7 +19,6 @@ async function getPhotographers() {
 
 /**
  * displayData():
- * @param {*} data
  * display the data of the photographers 
  */
 async function displayData(data) {
@@ -45,7 +43,4 @@ async function init() {
     displayData(photographersData);
 };
 
-
-init();
-
-
+init()

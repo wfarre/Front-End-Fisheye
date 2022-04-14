@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "http-server": "http-server ./",
-    "sass": "sass --watch ./public/assets/sass/photographer/main.scss ./public/css/photographer.css"
+    "sass": "sass --watch ./public/assets/sass/photographer/main.scss ./public/css/photographer.css",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,12 @@
     "http-server": "^14.1.0",
     "plyr": "^3.6.12",
     "sass": "^1.49.9"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.2.0"
   }
 }

@@ -1,6 +1,3 @@
-const extraInfo = document.querySelector(".sub-info");
-
-
 function hideMainDom() {
     main.setAttribute("aria-hidden", "true");
     main.classList.add("hidden");
@@ -8,7 +5,7 @@ function hideMainDom() {
     header.classList.add("hidden");
 }
 
-function displayMainDom(){
+function displayMainDom() {
     main.setAttribute("aria-hidden", "false");
     main.classList.remove("hidden");
     header.setAttribute("aria-hidden", "false");

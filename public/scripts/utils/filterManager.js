@@ -14,7 +14,6 @@ const changeFilter = () => {
         case "popularity":
             organizeByLikes(pictureDataArray);
             displayPhotographyData(photographerInfo, pictureDataArray);
-
             break;
         case "date":
             organizeByDate(pictureDataArray);
@@ -70,7 +69,6 @@ options.forEach(option => {
 function removeAllCardsAllSlides() {
     const cards = document.querySelectorAll(".card");
     let slides = document.querySelectorAll(".slide");
-    const photographerHeader = document.querySelector(".photographer-profile");
 
     cards.forEach(card => {
         card.remove();
@@ -85,7 +83,7 @@ function removeAllCardsAllSlides() {
  * organize the picture according to the number of likes 
  * */
 const organizeByLikes = (media) => {
-    const mediaArray = media.sort((a, b) => b.likes - a.likes);
+     media.sort((a, b) => b.likes - a.likes);
 }
 
 /**
@@ -93,8 +91,7 @@ const organizeByLikes = (media) => {
  * organize the picture according to their title 
  * */
 const organizeByTitles = (media) => {
-
-    const mediaArray = media.sort((a, b) => {
+    media.sort((a, b) => {
         if (a.title.toLowerCase() < b.title.toLowerCase()) {
             return -1;
         }
@@ -110,7 +107,7 @@ const organizeByTitles = (media) => {
  * organize the picture according to their date 
  **/
 const organizeByDate = (media) => {
-    const mediaArray = media.sort((a, b) => new Date(b.date) - new Date(a.date));
+     media.sort((a, b) => new Date(b.date) - new Date(a.date));
 }
 
 
