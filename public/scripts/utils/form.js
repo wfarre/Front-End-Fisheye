@@ -7,7 +7,6 @@ const closeContactBtn = document.getElementById("close-modal-btn-wrapper");
  * display the contact form modal
  **/
 function displayModal() {
-    main.setAttribute("aria-hidden", true);
     modal.setAttribute("aria-hidden", "false");
     hideMainDom();
     contactModalSection.style.display = "flex";
@@ -54,7 +53,20 @@ function validateForm(event) {
         }
         const message = new Email(myEmailObject);
         console.log(message);
+        resetContactForm();
     }
+}
+
+function resetContactForm() {
+    inputs[0].value = "";
+    inputs[1].value = "";
+    inputs[2].value = "";
+    inputs[3].value = "";
+    const formDataArray = document.querySelectorAll(".form-data");
+    formDataArray.forEach(formData => {
+        formData.classList.remove("valid");
+    })
+    closeModal();
 }
 
 const inputs = document.querySelectorAll(".contact-form__input");
@@ -148,32 +160,3 @@ function checkIfMessageIsValid(input) {
 
 
 
-/**
- * removeDanger() : 
- * if element valid, remove error  
- * */
-function removeDanger(input) {
-    const formDataToTarget = input.parentElement;
-    const errorMessage = formDataToTarget.querySelector(".error__message");
-
-    formDataToTarget.classList.remove("error");
-    formDataToTarget.classList.add("valid");
-    errorMessage.setAttribute("aria-hidden", "true");
-
-    input.setAttribute("aria-invalid", "false");
-}
-
-/**
- * displayDanger() : 
- * if element not valid, display error  
- * */
-function displayDanger(input) {
-    const formDataToTarget = input.parentElement;
-    const errorMessage = formDataToTarget.querySelector(".error__message");
-
-    formDataToTarget.classList.add("error");
-    formDataToTarget.classList.remove("valid");
-    errorMessage.setAttribute("aria-hidden", "false");
-    input.setAttribute("aria-invalid", "true");
-
-}

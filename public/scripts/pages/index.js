@@ -30,7 +30,7 @@ async function displayData(data) {
         const photographerCard = Template.createPhotographerCard();
         photographersSection.appendChild(photographerCard);
     })
-};
+}
 
 /** init():
  * triggers the function displayData() to display the photographers' data
@@ -41,6 +41,6 @@ async function init() {
         photographersData
     } = await getPhotographers();
     displayData(photographersData);
-};
+}
 
 init()

@@ -8,7 +8,6 @@ class PhotographyCard {
 
         const photographyCard = document.createElement("article");
         photographyCard.classList.add("card");
-        // photographyCard.setAttribute("aria-label", this._photography.title + ", vu plein écran")
 
         let mediaToDisplay;
 

@@ -2,8 +2,7 @@ const closeBtn = document.querySelector(".close-btn");
 const carousel = document.getElementById("carousel");
 const carouselSection = document.getElementById("carousel-section");
 const body = document.getElementById("body");
-const main = document.getElementById("main");
-const header = document.getElementById("header");
+
 let currentSlide;
 
 /**

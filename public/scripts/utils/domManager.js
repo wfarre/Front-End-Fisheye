@@ -1,3 +1,6 @@
+const main = document.getElementById("main");
+const header = document.getElementById("header");
+
 function hideMainDom() {
     main.setAttribute("aria-hidden", "true");
     main.classList.add("hidden");
@@ -11,3 +14,4 @@ function displayMainDom() {
     header.setAttribute("aria-hidden", "false");
     header.classList.remove("hidden");
 }
+
