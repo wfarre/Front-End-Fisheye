@@ -6,7 +6,9 @@ import { removeDanger, displayDanger } from './errorManager.js';
 const contactModalSection = document.getElementById("contact-modal-section");
 const modal = document.getElementById("contact_modal");
 const closeContactBtn = document.getElementById("close-modal-btn-wrapper");
+const submitBtn = document.getElementById("form-submit-btn");
 
+submitBtn.addEventListener("click", (e) => validateForm(e) );
 /**
  * displayModal():
  * display the contact form modal
@@ -58,11 +60,13 @@ function validateForm(event) {
         }
         const message = new Email(myEmailObject);
         console.log(message);
+        
         resetContactForm();
     }
 }
 
 function resetContactForm() {
+    closeModal();
     inputs[0].value = "";
     inputs[1].value = "";
     inputs[2].value = "";
@@ -71,7 +75,7 @@ function resetContactForm() {
     formDataArray.forEach(formData => {
         formData.classList.remove("valid");
     })
-    closeModal();
+   
 }
 
 const inputs = document.querySelectorAll(".contact-form__input");
@@ -170,6 +174,7 @@ closeBtn.addEventListener("click", () => {
     closeModal();
 });
 
+// window._validateForm = { validateForm }
 window._displayModal = { displayModal}
 export default validateForm;
 export { displayModal, closeModal}
