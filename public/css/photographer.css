@@ -130,7 +130,7 @@
 }
 
 .contact-form__input {
-  width: calc(100% - 2 * 18px);
+  width: calc(100% - 36px);
   height: 68px;
   border: none;
   border-radius: 5px;
@@ -304,6 +304,7 @@
   align-items: center;
   height: 300px;
   margin: 0 7%;
+  width: 86%;
   padding: 0 3.5%;
   background-color: #FAFAFA;
   column-gap: 18px;
@@ -389,6 +390,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 20%;
   color: #901C1C;
 }
 .card__header__title {
@@ -399,7 +401,7 @@
 .card .image-wrapper {
   width: 100%;
   height: 300px;
-  border-radius: 0;
+  border-radius: 5px;
 }
 .card .image-wrapper img {
   position: absolute;
@@ -483,6 +485,7 @@ video {
   justify-content: space-between;
   flex-wrap: wrap;
   margin-top: 50px;
+  gap: 20px;
 }
 
 .carousel-section {
@@ -523,9 +526,11 @@ video {
   position: relative;
   display: flex;
   justify-content: center;
-  height: 80vh;
-  width: 90vw;
-  margin-top: 60px;
+  height: 100%;
+  width: 100%;
+}
+.slide .card__header {
+  height: fit-content;
 }
 
 .slide .image-wrapper {
@@ -569,7 +574,7 @@ video {
 
 .close-btn {
   position: absolute;
-  top: 13%;
+  top: 6%;
   right: 7%;
   z-index: 10;
 }
@@ -639,8 +644,7 @@ body {
 .main {
   position: relative;
   height: 100%;
-  width: 100%;
-  margin-bottom: 30px;
+  margin-bottom: 70px;
 }
 
 /* picture section  */
@@ -668,16 +672,24 @@ body {
   bottom: 0;
   right: 20px;
   width: 376px;
-  padding: 0 20px;
+  padding: 15px 20px;
   background: #DB8876;
   color: #000000;
   font-size: 1.3em;
   border-radius: 5px 5px 0 0;
   z-index: 900;
 }
+@media all and (max-width: 900px) {
+  .sub-info {
+    width: 100%;
+    right: 0;
+    padding: 15px 0;
+  }
+}
 
 .body-header {
   margin: 0 7%;
+  width: 86%;
 }
 .body-header .logo {
   width: 200px;
