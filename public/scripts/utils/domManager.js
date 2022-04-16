@@ -15,3 +15,5 @@ function displayMainDom() {
     header.classList.remove("hidden");
 }
 
+
+export {displayMainDom, hideMainDom};

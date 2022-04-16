@@ -1,4 +1,4 @@
-class Email {
+export default class Email {
     constructor(data) {
         this._name = data.name;
         this._familyName = data.familyName;

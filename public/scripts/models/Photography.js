@@ -1,4 +1,4 @@
-class Photography {
+export default class Photography {
     constructor(data) {
         this._id = data.media.id
         this._photographerId = data.media.photographerId

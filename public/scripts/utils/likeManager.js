@@ -2,7 +2,7 @@
  * checkMyLikes() 
  * when we click on one like, it add or remove one like in the counter 
  * */
-const checkMyLikes = () => {
+const checkMyLikes = (pictureArray) => {
     const likes = document.querySelectorAll(".likes");
 
     likes.forEach(like => {
@@ -10,7 +10,7 @@ const checkMyLikes = () => {
             let picLikeCounter = parseInt(like.querySelector(".like-counter").innerHTML);
             const picId = parseInt(like.parentElement.id);
 
-            pictureDataArray.forEach(pic => {
+            pictureArray.forEach(pic => {
                 if (pic.id === picId) {
                     console.log("picId");
                     if (like.getAttribute("checked") === "true") {
@@ -44,12 +44,15 @@ const checkMyLikes = () => {
  * getMyTotalLikes()
  * calculate the total of likes in the entire page 
  * */
-const getMyTotalLikes = () => {
-    totalLikes = 0;
-    pictureDataArray.forEach(pic => {
+const getMyTotalLikes = (pictureArray) => {
+    let totalLikes = 0;
+    pictureArray.forEach(pic => {
         totalLikes += pic.likes;
     })
 
     const totalLikeDOM = document.querySelector(".like-quantity");
     totalLikeDOM.innerHTML = totalLikes;
 }
+
+
+export {checkMyLikes, getMyTotalLikes};

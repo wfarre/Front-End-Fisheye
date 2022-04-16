@@ -109,12 +109,12 @@
         <span class="sr-only">Fermer le carousel</span>
       </a>
 
-      <a href="#" class="prev" id="prev" role="button" aria-label="image précédente" onclick="previousSlide(1)">
+      <a href="#" class="prev" id="prev" role="button" aria-label="image précédente">
         <i class="fas fa-angle-left arrow"></i>
         <span class="sr-only">Aller à la photographie précédente</span>
       </a>
 
-      <a href="#" class="next" id="next" role="button" aria-label="image suivante" onclick="nextSlide(1)">
+      <a href="#" class="next" id="next" role="button" aria-label="image suivante">
         <i class="fas fa-angle-right arrow"></i>
         <span class="sr-only">Aller à la photographie suivante</span>
       </a>
@@ -129,7 +129,7 @@
 
     <div class="modal" id="contact_modal" role="dialog" aria-hidden="true" aria-labelledby="contact__header">
 
-      <a href="#" class="close-modal-btn-wrapper" id="close-modal-btn-wrapper" onclick="closeModal()">
+      <a href="#" class="close-modal-btn-wrapper" id="close-modal-btn-wrapper">
         <img id="close-modal-btn" class="close-modal-btn" src="assets/icons/close.svg"
           alt="ferme le formulaire de contact" />
       </a>
@@ -193,28 +193,29 @@
 
 
   <!-- utils -->
-  <script src="./scripts/utils/errorManager.js" async></script>
-  <script src="./scripts/utils/slider.js" async></script>
-  <script src="./scripts/utils/filterManager.js" async></script>
-  <script src="./scripts/utils/form.js" async></script>
-  <script src="./scripts/utils/domManager.js" async></script>
-  <script src="./scripts/utils/eventManager.js" defer></script>
-  <script src="./scripts/utils/likeManager.js" async></script>
+  <script type="module" src="./scripts/utils/errorManager.js"></script>
+  <script type="module" src="./scripts/utils/slider.js" async></script>
+  <script type="module" src="./scripts/utils/filterManager.js" async></script>
+  <script type="module" src="./scripts/utils/form.js" defer ></script>
+  <script type="module" src="./scripts/utils/domManager.js" async></script>
+  <script type="module" src="./scripts/utils/eventManager.js" defer></script>
+  <script type="module" src="./scripts/utils/likeManager.js" async></script>
 
   <!-- factories -->
-  <script src="./scripts/factories/photographer.js" async></script>
+  <script type="module" src="./scripts/factories/photographer.js" async></script>
 
   <!-- models -->
-  <script src="./scripts/models/Photographer.js" async></script>
-  <script src="./scripts/models/Photography.js" async></script>
-  <script src="./scripts/models/Email.js" async></script>
+  <script type="module" src="./scripts/models/Photographer.js" async></script>
+  <script type="module" src="./scripts/models/Photography.js" async></script>
+  <script type="module" src="./scripts/models/Email.js" async></script>
 
   <!-- templates -->
-  <script src="./scripts/templates/PhotographerCard.js" async></script>
-  <script src="./scripts/templates/PhotographyCard.js" async></script>
+  <script type="module" src="./scripts/templates/PhotographerCard.js" async></script>
+  <script type="module" src="./scripts/templates/PhotographyCard.js" async></script>
 
   <!-- pages -->
-  <script src="./scripts/pages/photographer.js" async></script>
+  <script type="module" src="./scripts/pages/photographer.js" async></script>
+  <script src="./scripts/pages/hey.js"></script>
 
 </body>
 

@@ -1,3 +1,8 @@
+import { hideMainDom, displayMainDom } from './domManager.js';
+import Email from '../models/Email.js';
+import { removeDanger, displayDanger } from './errorManager.js';
+
+
 const contactModalSection = document.getElementById("contact-modal-section");
 const modal = document.getElementById("contact_modal");
 const closeContactBtn = document.getElementById("close-modal-btn-wrapper");
@@ -158,5 +163,14 @@ function checkIfMessageIsValid(input) {
     }
 }
 
+const closeBtn = document.querySelector(".close-modal-btn");
 
+
+closeBtn.addEventListener("click", () => {
+    closeModal();
+});
+
+window._displayModal = { displayModal}
+export default validateForm;
+export { displayModal, closeModal}
 

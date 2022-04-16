@@ -1,4 +1,5 @@
-class PhotographerCard {
+
+export default class PhotographerCard {
     constructor(photographer) {
         this._photographer = photographer
     }
@@ -56,7 +57,7 @@ class PhotographerCard {
             </div>
 
             <div class="button-wrapper">
-                <button class="contact_button" onclick="displayModal()"
+                <button id="contact-me-btn" class="contact_button" onclick="window._displayModal.displayModal()"
                 aria-label="Contactez moi">Contactez-moi</button>
             </div>
 

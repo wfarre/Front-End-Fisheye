@@ -1,3 +1,6 @@
+import PhotographerFactory3 from '../factories/photographer.js';
+import PhotographerCard from '../templates/PhotographerCard.js';
+
 async function getPhotographers() {
     // // Penser à remplacer par les données récupérées dans le json
     let data = await fetch('../data/photographers.json').then(response => {

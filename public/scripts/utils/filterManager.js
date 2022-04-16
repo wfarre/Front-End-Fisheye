@@ -1,3 +1,6 @@
+import { pictureDataArray, photographerInfo } from "../pages/photographer.js";
+import { displayPhotographyData } from "../pages/photographer.js";
+
 /**
  * changeFilter():
  * First, it removes all the cards and slides from the DOM.
@@ -119,3 +122,6 @@ const filterSelector = document.getElementById("filter");
 filterSelector.addEventListener("click", () => {
     changeFilter();
 })
+
+
+export {organizeByLikes}

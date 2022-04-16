@@ -1,4 +1,4 @@
-class PhotographyCard {
+export default class PhotographyCard {
     constructor(photography) {
         this._photography = photography
     }
@@ -18,8 +18,8 @@ class PhotographyCard {
 
         if (media === this._photography.video) {
             mediaToDisplay = `
-                <video>
-                    <source src="${media}" title="${this._photography.likes} likes">
+                <video preload="metadata" mute>
+                    <source  src="${media}" title="${this._photography.likes} likes" type="video/mp4">
                 </video>`;
         }
 
@@ -28,7 +28,7 @@ class PhotographyCard {
                 ${mediaToDisplay}
             </a>
             <div class="card__header" id="${this._photography.id}">
-                <h2 class="card__header__title" lang="en">
+                <h2 class="card__header__title" lang="en-Uk">
                     ${this._photography.title}
                 </h2>
                 <div checked="false" class="likes" >
@@ -63,7 +63,7 @@ class PhotographyCard {
 
         if (media === this._photography.video) {
             const videoWrapper = `
-                <video id="player" playsinline controls data-poster="${media}" title="${this._photography.likes} likes">
+                <video preload="metadata" mute id="player" playsinline controls data-poster="${media}" title="${this._photography.likes} likes">
                     <source src="${media}" type="video/mp4" />
                 </video>`;
 

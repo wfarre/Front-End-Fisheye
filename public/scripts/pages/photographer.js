@@ -1,3 +1,12 @@
+import {organizeByLikes} from '../utils/filterManager.js';
+import PhotographerFactory3 from '../factories/photographer.js';
+import PhotographerCard from '../templates/PhotographerCard.js';
+import PhotographyCard from '../templates/PhotographyCard.js';
+import displaySlideOnClick from '../utils/slider.js';
+import {checkMyLikes, getMyTotalLikes} from '../utils/likeManager.js';
+
+
+
 /**
  * 
  * getPhotographers():
@@ -40,8 +49,8 @@ async function getPhotographers() {
     };
 }
 
-let pictureDataArray = [];
-let photographerInfo;
+export let pictureDataArray = [];
+export let photographerInfo;
 
 /**
  * displayPhotographerData():
@@ -61,7 +70,7 @@ async function displayPhotographerData(photographer) {
  * displayPhotographyData():
  * the function displays the photographer's photography in the DOM
 //  */
-async function displayPhotographyData(photographer, mediaData) {
+export async function displayPhotographyData(photographer, mediaData) {
     let index = 0;
 
     const profileModel = new PhotographerFactory3(photographer, "photographer");
@@ -79,8 +88,8 @@ async function displayPhotographyData(photographer, mediaData) {
     displaySlideOnClick(pictures);
 
     /* We update the number of likes for each pictures but also the total number in the footer*/
-    checkMyLikes();
-    getMyTotalLikes();
+    checkMyLikes(pictureDataArray);
+    getMyTotalLikes(pictureDataArray);
 }
 
 /**
@@ -105,7 +114,7 @@ async function init(organizingFunction) {
     // displayData(photographerInfo, pictureDataArray);
     displayPhotographerData(photographerInfo);
     displayPhotographyData(photographerInfo, pictureDataArray);
-};
+}
 
 init(organizeByLikes);
 

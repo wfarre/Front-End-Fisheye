@@ -26,3 +26,6 @@ function displayDanger(input) {
     errorMessage.setAttribute("aria-hidden", "false");
     input.setAttribute("aria-invalid", "true");
 }
+
+
+export {removeDanger, displayDanger};

@@ -1,7 +1,9 @@
+import { hideMainDom, displayMainDom } from "./domManager.js";
 const closeBtn = document.querySelector(".close-btn");
 const carousel = document.getElementById("carousel");
 const carouselSection = document.getElementById("carousel-section");
 const body = document.getElementById("body");
+
 
 let currentSlide;
 
@@ -68,7 +70,7 @@ function nextSlide(n) {
  * displaySlideOnClick()
  * add eventlistener to every picture. When one picture is clicked, the carousel is opened at the right slide 
  * */
-function displaySlideOnClick(pictureArray) {
+export default function displaySlideOnClick(pictureArray) {
     pictureArray.forEach(picture => {
         picture.addEventListener("click", () => {
             const index = parseInt(picture.parentElement.id);
@@ -98,3 +100,17 @@ function closeCarousel() {
 closeBtn.addEventListener("click", () => {
     closeCarousel();
 });
+
+
+const prev = document.getElementById("prev");
+const next = document.getElementById("next");
+
+prev.addEventListener("click", () => {
+    previousSlide(1);
+});
+
+next.addEventListener("click", () => {
+    nextSlide(1);
+})
+
+export {previousSlide, nextSlide, closeCarousel};
