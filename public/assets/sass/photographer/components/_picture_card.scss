@@ -80,25 +80,9 @@
 }
 
 
-.likes {
-    display: inline-flex;
-    justify-content: space-around;
-    align-items: center;
-    column-gap: 10px;
-    font-size: 1.3em;
-    z-index: 40;
-}
 
-.like-logo {
-    font-size: 1em;
 
-    transition: all 500ms;
 
-    &:hover {
-        cursor: pointer;
-        transform: scale(1.2);
-    }
-}
 
 .byebye-heart {
     animation: fly-away 1s ease-in;

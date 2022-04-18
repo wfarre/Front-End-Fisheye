@@ -68,6 +68,33 @@
   background-color: #DB8876;
   color: #000000;
 }
+.contact_button--submit:hover {
+  background-color: white;
+  color: #901C1C;
+  border: solid 2px #901C1C;
+}
+
+.btn--likes {
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
+  column-gap: 10px;
+  font-size: 1.3em;
+  border: none;
+  color: #901C1C;
+  background-color: inherit;
+  z-index: 40;
+}
+.btn--likes:hover {
+  cursor: pointer;
+}
+.btn--likes .like-logo {
+  font-size: 1em;
+  transition: all 500ms;
+}
+.btn--likes .like-logo:hover {
+  transform: scale(1.2);
+}
 
 .modal-bg {
   content: " ";
@@ -440,24 +467,6 @@
   opacity: 0.2;
 }
 
-.likes {
-  display: inline-flex;
-  justify-content: space-around;
-  align-items: center;
-  column-gap: 10px;
-  font-size: 1.3em;
-  z-index: 40;
-}
-
-.like-logo {
-  font-size: 1em;
-  transition: all 500ms;
-}
-.like-logo:hover {
-  cursor: pointer;
-  transform: scale(1.2);
-}
-
 .byebye-heart {
   animation: fly-away 1s ease-in;
   color: #000000;
@@ -741,6 +750,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  height: 130%;
 }
 .body__home .photographer_section .card img {
   height: 200px;

@@ -18,10 +18,41 @@
         cursor: pointer;
         background-color: $button-bg-color-secondary;
         color: $button-txt-color-secondary;
-        // background-color: white;
-        // color:#901C1C;
-        // border: solid 2px #901C1C;
+    }
+
+    &--submit {
+        &:hover{
+            background-color: white;
+            color: #901C1C;
+            border: solid 2px #901C1C;
+        }
+        
     }
 }
 
+.btn--likes {
+    display: inline-flex;
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 1.3em;
+    border: none;
+    color: $color-secondary;
+    background-color: inherit;
+    z-index: 40;
 
+    &:hover {
+        cursor: pointer;
+    }
+
+    .like-logo {
+        font-size: 1em;
+
+        transition: all 500ms;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+
+}

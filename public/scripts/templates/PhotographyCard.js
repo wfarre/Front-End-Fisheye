@@ -31,13 +31,13 @@ export default class PhotographyCard {
                 <h2 class="card__header__title" lang="en-Uk">
                     ${this._photography.title}
                 </h2>
-                <div checked="false" class="likes" >
+                <button type="button" checked="false" class="likes btn--likes" >
                     <span class="like-counter">
                         ${this._photography.likes}
                     </span>
                     <i class="fas fa-heart like-logo like-logo-unchecked" aria-hidden="true" aria-label="likes">
                     </i>
-                </div>
+                </button>
             </div>`;
 
 
