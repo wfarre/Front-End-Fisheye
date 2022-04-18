@@ -768,12 +768,12 @@ body {
 }
 .body__home .photographer_section .card .tagline {
   margin: 0;
-  font-size: 0.56em;
+  font-size: 0.72em;
   margin-bottom: 3px;
 }
 .body__home .photographer_section .card .price {
   margin: 0;
-  font-size: 0.5em;
+  font-size: 0.72em;
   color: #757575;
 }
 .body__home .photographer_section .card__header {
