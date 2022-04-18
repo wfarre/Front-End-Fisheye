@@ -1,4 +1,4 @@
-import {organizeByLikes} from '../utils/filterManager.js';
+import {organizeByLikes as organizeByLikes} from '../utils/filterManager.js';
 import PhotographerFactory3 from '../factories/photographer.js';
 import PhotographerCard from '../templates/PhotographerCard.js';
 import PhotographyCard from '../templates/PhotographyCard.js';
