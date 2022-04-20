@@ -1,9 +1,10 @@
 import {organizeByLikes as organizeByLikes} from '../utils/filterManager.js';
-import PhotographerFactory3 from '../factories/photographer.js';
+import PhotographerFactory from '../factories/Photographer.js';
 import PhotographerCard from '../templates/PhotographerCard.js';
 import PhotographyCard from '../templates/PhotographyCard.js';
 import displaySlideOnClick from '../utils/slider.js';
 import {checkMyLikes, getMyTotalLikes} from '../utils/likeManager.js';
+import MediaFactory from '../factories/Media.js';
 
 
 
@@ -26,17 +27,25 @@ async function getPhotographers() {
     // get the id of the photographer to display the right information 
     const photographerId = parseInt(window.location.search.slice(4));
 
-    const photographers = data.photographers;
-    const allMediaData = data.media;
+    // const photographers = data.photographers;
+    // const allMediaData = data.media;
+
+    const photographers = data.photographers.map(photographer => new PhotographerFactory(photographer, "json"));
+
 
     // get only the data related to the right photographer
-    const photographerData = photographers.filter((photographer) => {
+    const photographerArray = photographers.filter((photographer) => {
         if (photographerId === photographer.id) {
             return photographer;
         }
     });
 
-    const mediaData = allMediaData.filter(media => {
+    const photographer = photographerArray[0]
+
+    const allMedia = data.media.map(media => new MediaFactory({ "media": media, "photographerName": photographer._name }, "json"));
+
+
+    const mediaData = allMedia.filter(media => {
         if (photographerId === media.photographerId) {
             return media;
         }
@@ -44,7 +53,7 @@ async function getPhotographers() {
 
     // et bien retourner le tableau photographers seulement une fois
     return {
-        photographerData,
+        photographer,
         mediaData
     };
 }
@@ -57,27 +66,24 @@ export let photographerInfo;
  * the function displays the photographer's data in the DOM
 //  */
 async function displayPhotographerData(photographer) {
+
     const photographerHeader = document.getElementById("photographer-header");
+    const Template = new PhotographerCard(photographer);
+    const photographerProfile = Template.loadDom();
 
-    const profileModel = new PhotographerFactory3(photographer, "photographer");
-    const Template = new PhotographerCard(profileModel);
-    const photoProfile = Template.loadDom();
-
-    photographerHeader.appendChild(photoProfile);
+    photographerHeader.appendChild(photographerProfile);
 }
 
 /**
  * displayPhotographyData():
  * the function displays the photographer's photography in the DOM
 //  */
-export async function displayPhotographyData(photographer, mediaData) {
+export async function displayPhotographyData(mediaData) {
     let index = 0;
-
-    const profileModel = new PhotographerFactory3(photographer, "photographer");
 
     /* we display each picture in the DOM */
     mediaData.map(media => {
-        displayPicture(media, profileModel._name, index);
+        displayPicture(media, index);
         index++;
     });
 
@@ -86,6 +92,8 @@ export async function displayPhotographyData(photographer, mediaData) {
 
     /* Display the slider at the right picture */
     displaySlideOnClick(pictures);
+
+    console.log(pictureDataArray);
 
     /* We update the number of likes for each pictures but also the total number in the footer*/
     checkMyLikes(pictureDataArray);
@@ -96,10 +104,10 @@ export async function displayPhotographyData(photographer, mediaData) {
  * init():
  * initialize the DOM by getting the data
  **/
-async function init(organizingFunction) {
+async function init() {
     // Récupère les datas des photographes
     const {
-        photographerData,
+        photographer,
         mediaData
     } = await getPhotographers();
 
@@ -107,30 +115,20 @@ async function init(organizingFunction) {
         return pictureInfo;
     });
 
-    photographerInfo = photographerData[0];
-
-    organizingFunction(pictureDataArray);
-
-    // displayData(photographerInfo, pictureDataArray);
-    displayPhotographerData(photographerInfo);
-    displayPhotographyData(photographerInfo, pictureDataArray);
+    organizeByLikes(pictureDataArray);
+    displayPhotographerData(photographer);
+    displayPhotographyData(pictureDataArray);
 }
 
-init(organizeByLikes);
+init()
 
 
-function displayPicture(media, photographer, index) {
+function displayPicture(media, index) {
 
     const pictureContainer = document.querySelector(".container--picture");
     const carouselContent = document.querySelector(".carousel__content");
 
-    /* use the photographer's name for the media's path */
-    const PhotoModel = new PhotographerFactory3(({
-        "media": media,
-        "photographerName": photographer
-    }), "media");
-
-    const PhotoTemplate = new PhotographyCard(PhotoModel);
+    const PhotoTemplate = new PhotographyCard(media);
     const card = PhotoTemplate.createPhotographyCard();
     const slide = PhotoTemplate.createSlide();
 

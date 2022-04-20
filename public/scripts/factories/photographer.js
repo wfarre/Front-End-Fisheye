@@ -1,15 +1,25 @@
-import Photography from "../models/Photography.js";
+// import Photography from "../models/Photography.js";
 import Photographer from "../models/Photographer.js";
 
 
-
-export default class PhotographerFactory3 {
-    constructor(data, type) {
-        if (type === "media") {
-            return new Photography(data);
-        }
-        if (type === "photographer") {
+export default class PhotographerFactory{
+    constructor(data, type){
+        if(type === "json"){
             return new Photographer(data);
         }
     }
 }
+
+
+
+
+// export default class PhotographerFactory3 {
+//     constructor(data, type) {
+//         if (type === "media") {
+//             return new Photography(data);
+//         }
+//         if (type === "photographer") {
+//             return new Photographer(data);
+//         }
+//     }
+// }

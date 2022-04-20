@@ -9,6 +9,8 @@ export default class PhotographerCard {
         $wrapper.classList.add("photographer-card-wrapper");
         $wrapper.setAttribute("href", "./photographer.html?id=" + this._photographer.id)
 
+        console.log(this._photographer.portrait);
+
         const photographerCard = `
             <article role="article" id="${this._photographer.id}" aria-label="lien vers la page de ${this._photographer.name}" class="card">
                     <img src="${this._photographer.portrait}" alt="" class="pic-profile">
@@ -31,7 +33,8 @@ export default class PhotographerCard {
     }
 
     loadDom() {
-        const picture = this._photographer.portrait;
+        console.log("my portrait");
+        console.log(this._photographer.portrait);
 
         const $wrapper = document.createElement("div");
         $wrapper.classList.add("photographer-profile");
@@ -62,7 +65,7 @@ export default class PhotographerCard {
             </div>
 
             <div class="image-wrapper">
-                <img id="profile-pic" src="${picture}" alt="">
+                <img id="profile-pic" src="${this._photographer.portrait}" alt="">
             </div>`;
 
         $wrapper.innerHTML = photographerProfile;

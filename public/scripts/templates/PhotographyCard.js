@@ -5,7 +5,8 @@ export default class PhotographyCard {
 
     createPhotographyCard() {
         const media = this._photography.media;
-
+        
+        console.log(media);
         const photographyCard = document.createElement("article");
         photographyCard.classList.add("card");
 
@@ -35,7 +36,7 @@ export default class PhotographyCard {
                     <span class="like-counter">
                         ${this._photography.likes}
                     </span>
-                    <i class="fas fa-heart like-logo like-logo-unchecked" aria-hidden="true" aria-label="likes">
+                    <i class="fas fa-heart like-logo like-logo-unchecked" aria-hidden="false" aria-label="likes">
                     </i>
                 </button>
             </div>`;

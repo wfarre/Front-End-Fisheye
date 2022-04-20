@@ -1,4 +1,4 @@
-import PhotographerFactory3 from '../factories/photographer.js';
+import PhotographerFactory from '../factories/Photographer.js';
 import PhotographerCard from '../templates/PhotographerCard.js';
 
 async function getPhotographers() {
@@ -11,10 +11,11 @@ async function getPhotographers() {
         console.log(err);
     });
 
-    const photographersData = data.photographers;
+    const photographers = data.photographers.map(photographer => new PhotographerFactory(photographer, "json"));
+    // const photographersData = data.photographers;
     // et bien retourner le tableau photographers seulement une fois
     return {
-        photographersData
+        photographers
     };
 }
 
@@ -24,26 +25,29 @@ async function getPhotographers() {
  * displayData():
  * display the data of the photographers 
  */
-async function displayData(data) {
+async function displayPhotographerData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
+    console.log(photographers);
 
-    const Photographers = data.map(photographer => new PhotographerFactory3(photographer, "photographer"));
-    Photographers.map(photographer => {
+    // const Photographers = photographers.map(photographer => new PhotographerFactory3(photographer, "photographer"));
+    photographers.map(photographer => {
         const Template = new PhotographerCard(photographer);
         const photographerCard = Template.createPhotographerCard();
         photographersSection.appendChild(photographerCard);
     })
 }
 
-/** init():
+/** 
+ * init():
  * triggers the function displayData() to display the photographers' data
  */
 async function init() {
     // Récupère les datas des photographes
     const {
-        photographersData
+        photographers
     } = await getPhotographers();
-    displayData(photographersData);
+
+    displayPhotographerData(photographers);
 }
 
 init()
