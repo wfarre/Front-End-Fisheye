@@ -1,16 +1,19 @@
-
+/**
+ * creates the template for the photographer
+ */
 export default class PhotographerCard {
     constructor(photographer) {
         this._photographer = photographer
     }
 
+    /** 
+     * creates the card of a photographer
+    */
     createPhotographerCard() {
         const $wrapper = document.createElement("a");
         $wrapper.classList.add("photographer-card-wrapper");
-        $wrapper.setAttribute("href", "./photographer.html?id=" + this._photographer.id)
-
-        console.log(this._photographer.portrait);
-
+        $wrapper.setAttribute("href", "./photographer.html?id=" + this._photographer.id);
+        
         const photographerCard = `
             <article role="article" id="${this._photographer.id}" aria-label="lien vers la page de ${this._photographer.name}" class="card">
                     <img src="${this._photographer.portrait}" alt="" class="pic-profile">
@@ -32,10 +35,10 @@ export default class PhotographerCard {
         return ($wrapper);
     }
 
+    /**
+     * creates a template for the porfile of the photographer
+    */
     loadDom() {
-        console.log("my portrait");
-        console.log(this._photographer.portrait);
-
         const $wrapper = document.createElement("div");
         $wrapper.classList.add("photographer-profile");
 

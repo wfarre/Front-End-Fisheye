@@ -67,10 +67,9 @@ function validateForm(event) {
 
 function resetContactForm() {
     closeModal();
-    inputs[0].value = "";
-    inputs[1].value = "";
-    inputs[2].value = "";
-    inputs[3].value = "";
+    inputs.forEach(input => {
+        input.value = "";
+    })
     const formDataArray = document.querySelectorAll(".form-data");
     formDataArray.forEach(formData => {
         formData.classList.remove("valid");

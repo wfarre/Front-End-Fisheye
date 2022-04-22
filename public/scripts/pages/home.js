@@ -1,6 +1,10 @@
 import PhotographerFactory from '../factories/Photographer.js';
 import PhotographerCard from '../templates/PhotographerCard.js';
 
+/**
+ * get the data of the photographers from json file
+ * @returns the (usable) data of the photographers
+ */
 async function getPhotographers() {
     // // Penser à remplacer par les données récupérées dans le json
     let data = await fetch('../data/photographers.json').then(response => {
@@ -27,9 +31,7 @@ async function getPhotographers() {
  */
 async function displayPhotographerData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
-    console.log(photographers);
 
-    // const Photographers = photographers.map(photographer => new PhotographerFactory3(photographer, "photographer"));
     photographers.map(photographer => {
         const Template = new PhotographerCard(photographer);
         const photographerCard = Template.createPhotographerCard();

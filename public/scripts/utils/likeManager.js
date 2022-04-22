@@ -44,8 +44,6 @@ const checkMyLikes = (pictureArray) => {
  * calculate the total of likes in the entire page 
  * */
 const getMyTotalLikes = (pictureArray) => {
-    console.log("mes photos");
-    console.log(pictureArray);
     let totalLikes = 0;
     pictureArray.forEach(pic => {
         totalLikes += pic._likes;

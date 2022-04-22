@@ -27,11 +27,7 @@ async function getPhotographers() {
     // get the id of the photographer to display the right information 
     const photographerId = parseInt(window.location.search.slice(4));
 
-    // const photographers = data.photographers;
-    // const allMediaData = data.media;
-
     const photographers = data.photographers.map(photographer => new PhotographerFactory(photographer, "json"));
-
 
     // get only the data related to the right photographer
     const photographerArray = photographers.filter((photographer) => {
@@ -43,7 +39,6 @@ async function getPhotographers() {
     const photographer = photographerArray[0]
 
     const allMedia = data.media.map(media => new MediaFactory({ "media": media, "photographerName": photographer._name }, "json"));
-
 
     const mediaData = allMedia.filter(media => {
         if (photographerId === media.photographerId) {
@@ -93,8 +88,6 @@ export async function displayPhotographyData(mediaData) {
     /* Display the slider at the right picture */
     displaySlideOnClick(pictures);
 
-    console.log(pictureDataArray);
-
     /* We update the number of likes for each pictures but also the total number in the footer*/
     checkMyLikes(pictureDataArray);
     getMyTotalLikes(pictureDataArray);
@@ -122,7 +115,12 @@ async function init() {
 
 init()
 
-
+/**
+ * 
+ * the function displays a photography and a slide in the DOM,
+ * and add them an index to access right slide when the user clicks on the picture.
+ * 
+ */
 function displayPicture(media, index) {
 
     const pictureContainer = document.querySelector(".container--picture");

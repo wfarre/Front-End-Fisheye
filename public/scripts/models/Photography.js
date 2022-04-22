@@ -1,3 +1,6 @@
+/**
+ * constructor pattern for phography
+*/
 export default class Photography {
     constructor(data) {
         this._id = data.media.id

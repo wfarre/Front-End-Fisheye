@@ -47,6 +47,7 @@
         </label>
 
         <div class="selector-wrapper">
+
           <button id="dropdown-menu" class="dropdown-menu__button" aria-haspopup="true" aria-expanded="false">
             <span>Popularité</span>
             <i class="fas fa-chevron-up chevron-icon"></i>
@@ -54,22 +55,27 @@
 
           <ul class="selector" id="filter" role="listbox" aria-controls="dropdown-menu" aria-labelledby="select__label"
             tabindex="-1">
+
             <li role="option" class="option checked" id="popularity" aria-label="Trier par popularité">
               <a href="#" class="option__txt">Popularité</a>
               <i class="fas fa-chevron-up chevron-icon"></i>
-            </li>
+            </li><!-- option -->
+
             <li role="option" class="option" id="date" aria-label="Trier par date">
               <a href="#" class="option__txt">Date</a>
               <i class="fas fa-chevron-up chevron-icon"></i>
-            </li>
+            </li><!-- option -->
+
             <li role="option" class="option" id="title" aria-label="Trier par titre">
               <a href="#" class="option__txt">Titre</a>
               <i class="fas fa-chevron-up chevron-icon"></i>
-            </li>
-          </ul>
-        </div>
+            </li><!-- option -->
 
-      </header>
+          </ul><!-- #filter -->
+
+        </div><!-- .selector-wrappwer -->
+
+      </header> <!-- .select -->
 
       <div class="container container--picture">
         <!-- <div class="loader"></div> -->
@@ -89,12 +95,9 @@
         <span id="price" class="price"></span>
       </div>
   
-    </aside>
+    </aside><!-- .sub-info -->
 
-  </main>
-
-
-
+  </main><!-- main -->
 
   <div id="carousel-section" class="carousel carousel-section">
 
@@ -132,12 +135,12 @@
       <a href="#" class="close-modal-btn-wrapper" id="close-modal-btn-wrapper">
         <img id="close-modal-btn" class="close-modal-btn" src="assets/icons/close.svg"
           alt="ferme le formulaire de contact" />
-      </a>
+      </a><!-- .close-modal-btn-wrapper -->
 
       <header id="contact__header" class="contact__header">
         <h2 class="contact__header__title">Contactez-moi</h2>
         <h2 id="contact-photographer-name" class="contact__header__title"></h2>
-      </header>
+      </header><!-- #contact__header -->
 
       <form action="photographer.html" method="get" class="form contact-form">
 
@@ -178,7 +181,7 @@
               data-type="message" placeholder="Votre message ici" required aria-invalid="true"
               aria-required="true"></textarea>
             <span class="error__message" aria-hidden="true">Votre message doit comporter au moins 200 caractères.</span>
-          </div>
+          </div><!-- .form-data for message -->
 
         </fieldset><!-- .message--fieldset -->
 
@@ -200,18 +203,6 @@
   <script type="module" src="./scripts/utils/domManager.js" async></script>
   <script type="module" src="./scripts/utils/eventManager.js" ></script>
   <script type="module" src="./scripts/utils/likeManager.js" async></script>
-
-  <!-- factories -->
-  <script type="module" src="./scripts/factories/photographer.js" async></script>
-
-  <!-- models -->
-  <script type="module" src="./scripts/models/Photographer.js" async></script>
-  <script type="module" src="./scripts/models/Photography.js" async></script>
-  <script type="module" src="./scripts/models/Email.js" async></script>
-
-  <!-- templates -->
-  <script type="module" src="./scripts/templates/PhotographerCard.js" async></script>
-  <script type="module" src="./scripts/templates/PhotographyCard.js" async></script>
 
   <!-- pages -->
   <script type="module" src="./scripts/pages/photographer.js" async></script>

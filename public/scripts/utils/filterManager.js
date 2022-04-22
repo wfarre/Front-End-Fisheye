@@ -1,4 +1,4 @@
-import { pictureDataArray, photographerInfo } from "../pages/photographer.js";
+import { pictureDataArray} from "../pages/photographer.js";
 import { displayPhotographyData } from "../pages/photographer.js";
 
 /**
@@ -16,15 +16,15 @@ const changeFilter = () => {
     switch (checkedFilter) {
         case "popularity":
             organizeByLikes(pictureDataArray);
-            displayPhotographyData(photographerInfo, pictureDataArray);
+            displayPhotographyData(pictureDataArray);
             break;
         case "date":
             organizeByDate(pictureDataArray);
-            displayPhotographyData(photographerInfo, pictureDataArray);
+            displayPhotographyData(pictureDataArray);
             break;
         case "title":
             organizeByTitles(pictureDataArray);
-            displayPhotographyData(photographerInfo, pictureDataArray);
+            displayPhotographyData(pictureDataArray);
             break;
         default:
             checkedFilter

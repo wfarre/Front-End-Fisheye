@@ -1,12 +1,17 @@
+/**
+ * creates my cards for the photography
+ */
 export default class PhotographyCard {
     constructor(photography) {
         this._photography = photography
     }
-
+    /**
+     * 
+     * @returns a photography card template for the gallery.
+     */
     createPhotographyCard() {
         const media = this._photography.media;
-        
-        console.log(media);
+
         const photographyCard = document.createElement("article");
         photographyCard.classList.add("card");
 
@@ -19,8 +24,8 @@ export default class PhotographyCard {
 
         if (media === this._photography.video) {
             mediaToDisplay = `
-                <video preload="metadata" mute>
-                    <source  src="${media}" title="${this._photography.likes} likes" type="video/mp4">
+                <video class="video-element" preload="metadata" muted data-poster="${media}">
+                    <source  src="${media}" title="${this._photography.likes} likes" type="video/mp4" autostart="false">
                 </video>`;
         }
 
@@ -45,7 +50,10 @@ export default class PhotographyCard {
         return (photographyCard);
     }
 
-
+    /**
+     * 
+     * @returns a slide template for the carousel.
+     */
     createSlide() {
         const media = this._photography.media;
 
@@ -64,8 +72,8 @@ export default class PhotographyCard {
 
         if (media === this._photography.video) {
             const videoWrapper = `
-                <video preload="metadata" mute id="player" playsinline controls data-poster="${media}" title="${this._photography.likes} likes">
-                    <source src="${media}" type="video/mp4" />
+                <video preload="metadata" id="player" mute loop  playsinline controls data-poster="${media}" title="${this._photography.likes} likes">
+                    <source src="${media}" type="video/mp4" autostart="false" />
                 </video>`;
 
             mediaDiv = videoWrapper;
