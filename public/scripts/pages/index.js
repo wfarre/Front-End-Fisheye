@@ -1,5 +1,5 @@
-import PhotographerFactory from '../factories/Photographer.js';
-import PhotographerCard from '../templates/PhotographerCard.js';
+import PhotographerFactory from '../scripts/factories/Photographer.js';
+import PhotographerCard from '../scripts/templates/PhotographerCard.js';
 
 /**
  * get the data of the photographers from json file
