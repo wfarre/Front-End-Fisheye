@@ -1,10 +1,10 @@
-import {organizeByLikes as organizeByLikes} from '../scripts/utils/filterManager.js';
-import PhotographerFactory from '../scripts/factories/Photographer.js';
-import PhotographerCard from '../scripts/templates/PhotographerCard.js';
-import PhotographyCard from '../scripts/templates/PhotographyCard.js';
-import displaySlideOnClick from '../scripts/utils/slider.js';
-import {checkMyLikes, getMyTotalLikes} from '../scripts/utils/likeManager.js';
-import MediaFactory from '../scripts/factories/Media.js';
+import {organizeByLikes as organizeByLikes} from '../utils/filterManager.js';
+import PhotographerFactory from '../factories/Photographer.js';
+import PhotographerCard from '../templates/PhotographerCard.js';
+import PhotographyCard from '../templates/PhotographyCard.js';
+import displaySlideOnClick from '../utils/slider.js';
+import {checkMyLikes, getMyTotalLikes} from '../utils/likeManager.js';
+import MediaFactory from '../factories/Media.js';
 
 
 
