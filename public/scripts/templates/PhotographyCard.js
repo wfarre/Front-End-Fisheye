@@ -24,8 +24,8 @@ export default class PhotographyCard {
 
         if (media === this._photography.video) {
             mediaToDisplay = `
-                <video class="video-element" preload="metadata" muted data-poster="${media}">
-                    <source  src="${media}" title="${this._photography.likes} likes" type="video/mp4" autostart="false">
+                <video class="video-element" preload="metadata" mute>
+                    <source  src="${media}#t=0.1" title="${this._photography.likes} likes" type="video/mp4" autostart="false">
                 </video>`;
         }
 
@@ -73,7 +73,7 @@ export default class PhotographyCard {
         if (media === this._photography.video) {
             const videoWrapper = `
                 <video preload="metadata" id="player" mute loop  playsinline controls data-poster="${media}" title="${this._photography.likes} likes">
-                    <source src="${media}" type="video/mp4" autostart="false" />
+                    <source src="${media}#t=0.1" type="video/mp4" autostart="false" />
                 </video>`;
 
             mediaDiv = videoWrapper;
