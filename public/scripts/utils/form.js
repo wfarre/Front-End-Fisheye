@@ -145,7 +145,9 @@ function checkIfNameIsValid(input) {
  * check if the input as an email is valid or not 
  * */
 function checkIfEmailIsValid(input) {
-    const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    const pattern = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+    // const pattern = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
 
     if (input.match(pattern)) {
         return true;
