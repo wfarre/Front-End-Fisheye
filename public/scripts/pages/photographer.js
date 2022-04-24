@@ -27,16 +27,13 @@ async function getPhotographers() {
     // get the id of the photographer to display the right information 
     const photographerId = parseInt(window.location.search.slice(4));
 
-    const photographers = data.photographers.map(photographer => new PhotographerFactory(photographer, "json"));
-
-    // get only the data related to the right photographer
-    const photographerArray = photographers.filter((photographer) => {
-        if (photographerId === photographer.id) {
-            return photographer;
+    const photographerData = data.photographers.find((photographer)=>{
+        if(photographerId === photographer.id){
+            return photographer
         }
-    });
+    })
 
-    const photographer = photographerArray[0]
+    const photographer = new PhotographerFactory(photographerData, "json");
 
     const allMedia = data.media.map(media => new MediaFactory({ "media": media, "photographerName": photographer._name }, "json"));
 
