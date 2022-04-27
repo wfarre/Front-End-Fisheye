@@ -34,14 +34,14 @@ export default class PhotographyCard {
                 ${mediaToDisplay}
             </a>
             <div class="card__header" id="${this._photography.id}">
-                <h2 class="card__header__title" lang="en">
+                <h2 class="card__header__title" >
                     ${this._photography.title}
                 </h2>
-                <button type="button" checked="false" class="likes btn--likes" >
+                <button type="button" checked="false" class="likes btn--likes" aria-label="${this._photography.likes} likes" >
                     <span class="like-counter">
                         ${this._photography.likes}
                     </span>
-                    <i class="fas fa-heart like-logo like-logo-unchecked" aria-hidden="false" aria-label="likes">
+                    <i class="fas fa-heart like-logo like-logo-unchecked" aria-hidden="false" >
                     </i>
                 </button>
             </div>`;
@@ -75,7 +75,6 @@ export default class PhotographyCard {
                 <video preload="metadata" id="player" mute loop  playsinline controls data-poster="${media}" title="${this._photography.likes} likes">
                     <source src="${media}#t=0.1" type="video/mp4" autostart="false" />
                 </video>`;
-
             mediaDiv = videoWrapper;
         }
 

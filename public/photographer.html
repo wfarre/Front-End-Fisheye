@@ -84,27 +84,31 @@
     </section> <!-- #picture-section -->
 
 
-    <aside class="sub-info footer">
+    <div class="sub-info footer">
 
       <div class="sub-info__likes">
         <span class="like-quantity"></span>
         <i class="fas fa-heart"></i>
       </div>
-  
+
       <div class="sub-info__price">
         <span id="price" class="price"></span>
       </div>
-  
-    </aside><!-- .sub-info -->
+
+    </div><!-- .sub-info -->
+
+    <!-- <aside class="aside">
+      <a class="btn btn--back-to-profile" href="#photographer-header">TOP</a>
+    </aside> -->
 
   </main><!-- main -->
 
-  <div id="carousel-section" class="carousel carousel-section">
+  <div id="carousel-section" class="carousel carousel-section" role="dialog" aria-hidden="true"
+    aria-label="vu de l'image en plein écran">
 
     <div class="carousel__bg">
 
-      <div id="carousel" class="carousel__content" role="dialog" aria-hidden="true"
-        aria-label="vu de l'image en plein écran">
+      <div id="carousel" class="carousel__content">
       </div>
 
       <a href="#" class="close-btn" role="button" aria-label="ferme la boite de dialogue">
@@ -201,7 +205,7 @@
   <script type="module" src="./scripts/utils/filterManager.js" async></script>
   <script type="module" src="./scripts/utils/form.js"></script>
   <script type="module" src="./scripts/utils/domManager.js" async></script>
-  <script type="module" src="./scripts/utils/eventManager.js" ></script>
+  <script type="module" src="./scripts/utils/eventManager.js"></script>
   <script type="module" src="./scripts/utils/likeManager.js" async></script>
 
   <!-- pages -->

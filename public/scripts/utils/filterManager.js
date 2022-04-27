@@ -45,6 +45,8 @@ dropdownBtn.addEventListener("click", () => {
     dropdownBtn.style.display = "none";
 })
 
+
+
 /* when one of the filter is selected, the menu is closed and only the selected option is displayed in the button */
 options.forEach(option => {
     option.addEventListener("click", () => {

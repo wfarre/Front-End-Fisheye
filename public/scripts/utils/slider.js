@@ -1,7 +1,7 @@
 import { hideMainDom, displayMainDom } from "./domManager.js";
 const closeBtn = document.querySelector(".close-btn");
-const carousel = document.getElementById("carousel");
 const carouselSection = document.getElementById("carousel-section");
+// const carousel = document.getElementById("carousel");
 const body = document.getElementById("body");
 
 
@@ -26,6 +26,7 @@ function displaySlide(n) {
         currentSlide = slides.length - 1;
     }
 
+    // const slideTitle = slides[currentSlide].querySelector(".card__header__title").innerHTML;
     slides[currentSlide].style.display = "block";
     slides[currentSlide].setAttribute("aria-hidden", "false");
     body.classList.add("no-scroll");
@@ -76,7 +77,7 @@ export default function displaySlideOnClick(pictureArray) {
             const index = parseInt(picture.parentElement.id);
 
             carouselSection.style.display = "block";
-            carousel.setAttribute("aria-hidden", "false");
+            carouselSection.setAttribute("aria-hidden", "false");
             hideMainDom();
 
             closeBtn.focus();
@@ -92,7 +93,7 @@ export default function displaySlideOnClick(pictureArray) {
  */
 function closeCarousel() {
     carouselSection.style.display = "none";
-    carousel.setAttribute("aria-hidden", "true");
+    carouselSection.setAttribute("aria-hidden", "true");
     body.classList.remove("no-scroll");
     displayMainDom();
 }
