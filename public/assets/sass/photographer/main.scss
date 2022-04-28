@@ -22,12 +22,15 @@
     position:fixed;
     display: flex;
     justify-content: center;
-    width: 100%;
+    // width: 100%;
+    // right: 50%;
     top: 20px;
+    right: 50%;
     z-index: 999;
+    display: none;
 }
 
-.btn--back-to-profile{
+.btn--back-to-top{
     background-color: $button-bg-color-secondary;
     text-align: center;
     padding: 10px 20px;
@@ -42,8 +45,13 @@
     &:hover{
         color: rgb(255, 237, 237);
         transform: scale(1.1);
+        &>i{
+            animation: arrowUpAndDown 2000ms alternate-reverse infinite ease-in-out;
+        }
     }
 }
+
+
 
 
 .pic-profile{

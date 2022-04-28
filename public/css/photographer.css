@@ -50,6 +50,17 @@
     transform: rotateX(180deg);
   }
 }
+@keyframes arrowUpAndDown {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 .contact_button {
   width: 170px;
   height: 70px;
@@ -331,7 +342,7 @@
   align-items: center;
   height: 300px;
   margin: 0 7%;
-  width: 86%;
+  width: 79%;
   padding: 0 3.5%;
   background-color: #FAFAFA;
   column-gap: 18px;
@@ -556,6 +567,7 @@ video {
   justify-content: center;
   height: 100%;
   width: 100%;
+  text-decoration: none;
 }
 .slide .card__header {
   height: fit-content;
@@ -862,12 +874,13 @@ body {
   position: fixed;
   display: flex;
   justify-content: center;
-  width: 100%;
   top: 20px;
+  right: 50%;
   z-index: 999;
+  display: none;
 }
 
-.btn--back-to-profile {
+.btn--back-to-top {
   background-color: #DB8876;
   text-align: center;
   padding: 10px 20px;
@@ -880,9 +893,12 @@ body {
   transform: scale(1);
   transition: all 300ms;
 }
-.btn--back-to-profile:hover {
+.btn--back-to-top:hover {
   color: #ffeded;
   transform: scale(1.1);
+}
+.btn--back-to-top:hover > i {
+  animation: arrowUpAndDown 2000ms alternate-reverse infinite ease-in-out;
 }
 
 .pic-profile::before {

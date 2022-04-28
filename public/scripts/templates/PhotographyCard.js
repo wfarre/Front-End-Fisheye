@@ -57,9 +57,11 @@ export default class PhotographyCard {
     createSlide() {
         const media = this._photography.media;
 
-        const slide = document.createElement("div");
+        const slide = document.createElement("a");
         slide.classList.add("slide");
         slide.setAttribute("aria-hidden", "true");
+        slide.setAttribute("href", "#");
+        slide.setAttribute("aria-label", this._photography.title);
 
         let mediaDiv;
 
@@ -80,9 +82,7 @@ export default class PhotographyCard {
 
         slide.innerHTML = `
             <div class="image-wrapper">
-                <div>
                     ${mediaDiv}
-                </div>
             </div>
             <div class="card__header">
                 <h2 class="card__header__title" lang="en">

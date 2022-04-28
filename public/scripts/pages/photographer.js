@@ -133,3 +133,16 @@ function displayPicture(media, index) {
     pictureContainer.appendChild(card);
     carouselContent.appendChild(slide);
 }
+
+
+window.onscroll = makeAppearBtn;
+
+const backToTopBtn = document.querySelector(".aside");
+
+function makeAppearBtn(){
+    if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40){
+        backToTopBtn.style.display = "block";
+    } else {
+        backToTopBtn.style.display = "none"
+    }
+}
