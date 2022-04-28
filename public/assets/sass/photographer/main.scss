@@ -18,38 +18,7 @@
 @import "./utils/domManager";
 
 
-.aside{
-    position:fixed;
-    display: flex;
-    justify-content: center;
-    // width: 100%;
-    // right: 50%;
-    top: 20px;
-    right: 50%;
-    z-index: 999;
-    display: none;
-}
 
-.btn--back-to-top{
-    background-color: $button-bg-color-secondary;
-    text-align: center;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: $button-txt-color-secondary;
-    border-radius: 5px;
-    box-shadow: 10px 10px 30px -9px black;
-    font-size: 1.1em;
-    font-weight: bold;
-    transform: scale(1);
-    transition: all 300ms;
-    &:hover{
-        color: rgb(255, 237, 237);
-        transform: scale(1.1);
-        &>i{
-            animation: arrowUpAndDown 2000ms alternate-reverse infinite ease-in-out;
-        }
-    }
-}
 
 
 
