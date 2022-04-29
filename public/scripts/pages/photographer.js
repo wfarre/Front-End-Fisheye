@@ -35,13 +35,13 @@ async function getPhotographers() {
 
     const photographer = new PhotographerFactory(photographerData, "json");
 
-    const allMedia = data.media.map(media => new MediaFactory({ "media": media, "photographerName": photographer._name }, "json"));
-
-    const mediaData = allMedia.filter(media => {
+    const medias = data.media.filter(media => {
         if (photographerId === media.photographerId) {
             return media;
         }
     });
+
+    const mediaData= medias.map(media => new MediaFactory({ "media": media, "photographerName": photographer._name }, "json"))
 
     // et bien retourner le tableau photographers seulement une fois
     return {
