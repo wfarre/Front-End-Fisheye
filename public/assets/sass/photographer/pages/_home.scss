@@ -55,7 +55,7 @@
         width: 200px;
         object-fit: cover;
         image-rendering:optimizeSpeed;
-        image-resolution: 300dpi;
+        image-resolution:1dppx;
         border-radius: 100%;
         overflow: hidden;
         transition: transform 500ms;
