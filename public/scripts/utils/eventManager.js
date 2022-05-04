@@ -1,6 +1,7 @@
 import {nextSlide, previousSlide} from './slider.js';
 import {closeModal} from './form.js';
 import {closeCarousel} from './slider.js';
+
 // it triggers closeModal when escape is pressed 
 document.addEventListener("keydown", event => {
     const pressedKey = event.key;
