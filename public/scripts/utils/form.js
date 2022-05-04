@@ -4,7 +4,6 @@ import { removeDanger, displayDanger } from './errorManager.js';
 
 
 const contactModalSection = document.getElementById("contact-modal-section");
-const modal = document.getElementById("contact_modal");
 const closeContactBtn = document.getElementById("close-modal-btn-wrapper");
 const submitBtn = document.getElementById("form-submit-btn");
 
@@ -14,7 +13,7 @@ submitBtn.addEventListener("click", (e) => validateForm(e) );
  * display the contact form modal
  **/
 function displayModal() {
-    modal.setAttribute("aria-hidden", "false");
+    contactModalSection.setAttribute("aria-hidden", "false");
     hideMainDom();
     contactModalSection.style.display = "flex";
     closeContactBtn.focus();
@@ -26,7 +25,7 @@ function displayModal() {
  * close the contact form modal
  **/
 function closeModal() {
-    modal.setAttribute("aria-hidden", true);
+    contactModalSection.setAttribute("aria-hidden", true);
     displayMainDom();
     contactModalSection.style.display = "none";
 }
