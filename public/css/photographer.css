@@ -363,6 +363,9 @@
 }
 
 .chevron-icon {
+  height: 32px;
+  width: 32px;
+  fill: white;
   z-index: 99;
 }
 
@@ -819,6 +822,7 @@ body {
   height: 200px;
   width: 200px;
   object-fit: cover;
+  image-rendering: optimizeQuality;
   border-radius: 100%;
   overflow: hidden;
   transition: transform 500ms;
