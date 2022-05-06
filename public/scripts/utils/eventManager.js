@@ -5,6 +5,7 @@ import {closeCarousel} from './slider.js';
 // it triggers closeModal when escape is pressed 
 document.addEventListener("keydown", event => {
     const pressedKey = event.key;
+    console.log(pressedKey);
 
     if (pressedKey === "Escape") {
         closeModal();
@@ -16,6 +17,8 @@ document.addEventListener("keydown", event => {
 /* event listener when the user press the keyboard */
 window.addEventListener("keyup", (e) => {
     e.preventDefault();
+    console.log(e.key);
+    
     if (e.key === "ArrowRight") {
         nextSlide(1);
     }
