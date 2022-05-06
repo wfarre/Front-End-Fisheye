@@ -26,3 +26,19 @@ window.addEventListener("keyup", (e) => {
         previousSlide(1);
     }
 });
+
+
+
+window.onscroll = makeAppearBtn;
+
+const backToTopBtn = document.querySelector(".aside");
+/**
+ * make appear the button to go to the button when we scroll down.
+ * */
+function makeAppearBtn(){
+    if(document.body.scrollTop > 40 || document.documentElement.scrollTop > 40){
+        backToTopBtn.style.display = "block";
+    } else {
+        backToTopBtn.style.display = "none"
+    }
+}
